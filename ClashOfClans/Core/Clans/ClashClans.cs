@@ -1,8 +1,6 @@
 ﻿using ClashOfClans.Core.Interfaces;
 using ClashOfClans.Core.Utils;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -10,6 +8,10 @@ namespace ClashOfClans.Core.Clans
 {
     public class ClashClans : IClashClans
     {
+        private HttpClientService _httpClientService { get; set; }
+
+        public ClashClans(HttpClientService httpClientService) => _httpClientService = httpClientService;
+
         /// <summary>
         /// Search all clans by name.
         /// </summary>
@@ -17,7 +19,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="IEnumerable{Clan}"/></returns>
         public async Task<IEnumerable<Clan>> SearchAsync(string clanName)
         {
-            var result = await HttpClientService.RequestAsync<ClanSearchResult>($"clans?name={HttpUtility.UrlEncode(clanName)}");
+            var result = await _httpClientService.RequestAsync<ClanSearchResult>($"clans?name={HttpUtility.UrlEncode(clanName)}");
 
             return result.Clans;
         }
@@ -29,8 +31,8 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="IEnumerable{Clan}"/></returns>
         public async Task<IEnumerable<Clan>> SearchAsync(ClanSearchSettings clanSearchSettings)
         {
-            var result = await HttpClientService.SearchClansAsync<ClanSearchResult>(clanSearchSettings);
-
+            var result = await _httpClientService.SearchClansAsync<ClanSearchResult>(clanSearchSettings);
+            
             return result.Clans;
         }
 
@@ -41,7 +43,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="ClanInformation"/></returns>
         public async Task<ClanInformation> GetClanByTagAsync(string clanTag)
         {
-            var result = await HttpClientService.RequestAsync<ClanInformation>($"clans/{HttpUtility.UrlEncode(clanTag)}");
+            var result = await _httpClientService.RequestAsync<ClanInformation>($"clans/{HttpUtility.UrlEncode(clanTag)}");
 
             return result;
         }
@@ -53,7 +55,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="IEnumerable{ClanMember}"/></returns>
         public async Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag)
         {
-            var result = await HttpClientService.RequestAsync<ClanMembersResult>($"clans/{HttpUtility.UrlEncode(clanTag)}/members");
+            var result = await _httpClientService.RequestAsync<ClanMembersResult>($"clans/{HttpUtility.UrlEncode(clanTag)}/members");
 
             return result.Members;
         }
@@ -66,7 +68,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="IEnumerable{ClanMember}"/></returns>
         public async Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag, BasicSearchSettings searchSettings)
         {
-            var result = await HttpClientService.GetClanMembersAsync<ClanMembersResult>(HttpUtility.UrlEncode(clanTag), searchSettings);
+            var result = await _httpClientService.GetClanMembersAsync<ClanMembersResult>(HttpUtility.UrlEncode(clanTag), searchSettings);
 
             return result.Members;
         }

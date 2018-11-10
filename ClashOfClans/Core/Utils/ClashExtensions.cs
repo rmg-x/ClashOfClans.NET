@@ -1,12 +1,17 @@
 ﻿using ClashOfClans.Core.Clans;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ClashOfClans.Core.Utils
 {
     public static class ClashExtensions
     {
+        public static bool IsNotCriticalFailure(this HttpResponseMessage httpMsg) => httpMsg.StatusCode == HttpStatusCode.NotFound;
+
         public static string GetWarFrequency(this WarFrequency? warFrequency)
         {
             string warFreq;
