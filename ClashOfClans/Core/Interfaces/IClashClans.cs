@@ -18,5 +18,7 @@ namespace ClashOfClans.Core.Interfaces
         Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag);
 
         Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag, BasicSearchSettings searchSettings);
+
+        Task<IEnumerable<WarLog>> GetWarLogsAsync(string clanTag);
     }
 }
