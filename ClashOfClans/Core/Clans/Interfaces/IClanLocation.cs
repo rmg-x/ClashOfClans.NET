@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClashOfClans.Core.Interfaces
+namespace ClashOfClans.Core.Clans.Interfaces
 {
     public interface IClanLocation
     {

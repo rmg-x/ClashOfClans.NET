@@ -1,4 +1,5 @@
 ﻿using ClashOfClans.Core.Interfaces;
+using ClashOfClans.Core.Leagues.Interfaces;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Leagues

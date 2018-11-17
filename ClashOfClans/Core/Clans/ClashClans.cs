@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Linq;
 using System;
+using ClashOfClans.Core.Clans.Interfaces;
 
 namespace ClashOfClans.Core.Clans
 {
