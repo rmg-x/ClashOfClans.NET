@@ -1,7 +1,4 @@
-using ClashOfClans.Core.Clans;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ClashOfClans.Core.Clans.Interfaces
 {
@@ -34,6 +31,8 @@ namespace ClashOfClans.Core.Clans.Interfaces
         int WarWins { get; }
 
         int WarTies { get; }
+
+        int WarLosses { get; }
 
         bool IsWarLogPublic { get; }
 

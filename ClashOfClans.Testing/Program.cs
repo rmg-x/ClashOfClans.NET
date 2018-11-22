@@ -2,16 +2,20 @@
 using ClashOfClans;
 using System.Linq;
 using ClashOfClans.Core.Clans;
+using System.Threading.Tasks;
 
 namespace ClashOfClans.Testing
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var coc = new ClashOfClansClient(Environment.GetEnvironmentVariable("COC_TOKEN"));
+
             var tag = "#U8C2UP8L";
-            var warlogs = coc.Clans.GetWarLogsAsync(tag).GetAwaiter().GetResult();
+            var result = await coc.Clans.GetWarLogsAsync(tag);
+
+            Console.WriteLine(result.FirstOrDefault().Result);
         }
     }
 }

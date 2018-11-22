@@ -1,9 +1,6 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
-using ClashOfClans.Core.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace ClashOfClans.Core.Clans
 {
@@ -50,6 +47,9 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "warTies")]
         public int WarTies { get; private set; }
+
+        [DataMember(Name = "warLosses")]
+        public int WarLosses { get; private set; }
 
         [DataMember(Name = "isWarLogPublic")]
         public bool IsWarLogPublic { get; private set; }

@@ -1,11 +1,5 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
-using ClashOfClans.Core.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
-using Utf8Json;
-using Utf8Json.Formatters;
 
 namespace ClashOfClans.Core.Clans
 {
