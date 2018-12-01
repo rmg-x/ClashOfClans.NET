@@ -5,9 +5,7 @@ namespace ClashOfClans.Core.Clans.Interfaces
 {
     public interface IClashClans
     {
-        Task<IEnumerable<Clan>> SearchAsync(string clanName);
-
-        Task<IEnumerable<Clan>> SearchAsync(ClanSearchSettings clanSearchSettings);
+        Task<IEnumerable<Clan>> SearchAsync(string clanName, ClanSearchSettings clanSearchSettings = default);
 
         Task<ClanInformation> GetClanByTagAsync(string clanTag);
 

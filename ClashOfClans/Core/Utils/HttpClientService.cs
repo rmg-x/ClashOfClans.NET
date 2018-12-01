@@ -11,24 +11,24 @@ namespace ClashOfClans.Core.Utils
 {
     public class HttpClientService : HttpClient
     {
-        private static HttpClientService Instance { get; } = new HttpClientService();
-
         private const string COC_BASE_ADDRESS = "https://api.clashofclans.com/v1/";
 
         private const string SCHEME = "Bearer";
 
         public static HttpClientService GetInstance(string token)
         {
-            Instance.BaseAddress = new Uri(COC_BASE_ADDRESS);
-            Instance.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(SCHEME, token);
-            Instance.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var httpClientInstance = new HttpClientService();
 
-            return Instance;
+            httpClientInstance.BaseAddress = new Uri(COC_BASE_ADDRESS);
+            httpClientInstance.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(SCHEME, token);
+            httpClientInstance.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+            return httpClientInstance;
         }
 
         public async Task<T> RequestAsync<T>(string requestUri, CancellationToken ct = default)
         {
-            var response = await Instance.GetAsync(requestUri, ct);
+            var response = await GetAsync(requestUri, ct);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -43,14 +43,17 @@ namespace ClashOfClans.Core.Utils
             return JsonSerializer.Deserialize<T>(result, StandardResolver.AllowPrivate);
         }
 
-        public async Task<T> SearchClansAsync<T>(ClanSearchSettings clanSearchSettings, CancellationToken ct = default)
+        public async Task<T> SearchClansAsync<T>(string clanName, ClanSearchSettings clanSearchSettings = default, CancellationToken ct = default)
         {
-            var requestUri = $"clans?{clanSearchSettings.GetQueryString()}";
+            var requestUri = $"clans?name={clanName}";
 
-            if (requestUri.Length == 6)
-                throw new Exception("At least one search parameter must be specified.");
+            if (clanSearchSettings != default)
+                requestUri += clanSearchSettings.GetQueryString();
 
-            var response = await Instance.GetAsync(requestUri, ct);
+            if (string.IsNullOrEmpty(clanName) || clanName.Length < 3)
+                throw new ArgumentException("A clan name must be specified and greater than two characters.", nameof(clanName));
+
+            var response = await GetAsync(requestUri, ct);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -69,7 +72,7 @@ namespace ClashOfClans.Core.Utils
         {
             var requestUri = $"clans/{clanTag}/members?{basicSearchSettings.GetQueryString()}";
 
-            var response = await Instance.GetAsync(requestUri, ct);
+            var response = await GetAsync(requestUri, ct);
 
             if (!response.IsSuccessStatusCode)
             {

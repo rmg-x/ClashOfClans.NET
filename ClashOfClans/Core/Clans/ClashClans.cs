@@ -3,6 +3,8 @@ using ClashOfClans.Core.Utils;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
+using System.Linq;
+using System;
 
 namespace ClashOfClans.Core.Clans
 {
@@ -13,26 +15,14 @@ namespace ClashOfClans.Core.Clans
         public ClashClans(HttpClientService httpClientService) => _httpClientService = httpClientService;
 
         /// <summary>
-        /// Search all clans by name.
-        /// </summary>
-        /// <param name="clanName">Name of the clan to search for</param>
-        /// <returns><see cref="IEnumerable{Clan}"/></returns>
-        public async Task<IEnumerable<Clan>> SearchAsync(string clanName)
-        {
-            var result = await _httpClientService.RequestAsync<ClanSearchResult>($"clans?name={HttpUtility.UrlEncode(clanName)}");
-
-            return result.Clans;
-        }
-
-        /// <summary>
         /// Search all clans by name and/or filtering the results using various criteria. At least one filtering criteria must be defined and if name is used as part of search, it is required to be at least three characters long.
         /// </summary>
         /// <param name="clanSearchSettings">Search criteria</param>
         /// <returns><see cref="IEnumerable{Clan}"/></returns>
-        public async Task<IEnumerable<Clan>> SearchAsync(ClanSearchSettings clanSearchSettings)
+        /// <exception cref="ArgumentException"></exception>
+        public async Task<IEnumerable<Clan>> SearchAsync(string clanName, ClanSearchSettings clanSearchSettings = default)
         {
-            var result = await _httpClientService.SearchClansAsync<ClanSearchResult>(clanSearchSettings);
-            
+            var result = await _httpClientService.SearchClansAsync<ClanSearchResult>(HttpUtility.UrlEncode(clanName), clanSearchSettings);
             return result.Clans;
         }
 

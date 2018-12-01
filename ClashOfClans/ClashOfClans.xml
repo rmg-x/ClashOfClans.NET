@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ClashOfClans</name>
+    </assembly>
+    <members>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.SearchAsync(System.String,ClashOfClans.Core.Clans.ClanSearchSettings)">
+            <summary>
+            Search all clans by name and/or filtering the results using various criteria. At least one filtering criteria must be defined and if name is used as part of search, it is required to be at least three characters long.
+            </summary>
+            <param name="clanSearchSettings">Search criteria</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanByTagAsync(System.String)">
+            <summary>
+            Get information about a single clan by clan tag.
+            </summary>
+            <param name="clanTag">Clan tag to search for</param>
+            <returns><see cref="T:ClashOfClans.Core.Clans.ClanInformation"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanMembersAsync(System.String)">
+            <summary>
+            Returns a list of clan members based on the clan tag.
+            </summary>
+            <param name="clanTag">Clan tag to search for</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanMembersAsync(System.String,ClashOfClans.Core.BasicSearchSettings)">
+            <summary>
+            Returns a list of clan members based on the clan tag and search criteria.
+            </summary>
+            <param name="clanTag">Clan tag to search for</param>
+            <param name="searchSettings">Basic search criteria</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetWarLogsAsync(System.String)">
+            <summary>
+            Retrieve a clan war log.
+            </summary>
+            <param name="clanTag">Clan tag to search for</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+    </members>
+</doc>
