@@ -9,10 +9,10 @@ namespace ClashOfClans.Core.Clans.Interfaces
 
         Task<ClanInformation> GetClanByTagAsync(string clanTag);
 
-        Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag);
-
-        Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag, BasicSearchSettings searchSettings);
+        Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag, BasicSearchSettings searchSettings = default);
 
         Task<IEnumerable<WarLog>> GetWarLogsAsync(string clanTag);
+
+        Task<CurrentWar> GetCurrentWarAsync(string clanTag);
     }
 }

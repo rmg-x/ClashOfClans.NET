@@ -15,7 +15,7 @@ namespace ClashOfClans.Core.Utils
 
         private const string SCHEME = "Bearer";
 
-        public static HttpClientService GetInstance(string token)
+        public static HttpClientService GetInstance(string token, TimeSpan requestTimeout)
         {
             var httpClientInstance = new HttpClientService();
 
@@ -23,12 +23,15 @@ namespace ClashOfClans.Core.Utils
             httpClientInstance.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(SCHEME, token);
             httpClientInstance.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
+            if (requestTimeout != default)
+                httpClientInstance.Timeout = requestTimeout;
+
             return httpClientInstance;
         }
 
-        public async Task<T> RequestAsync<T>(string requestUri, CancellationToken ct = default)
+        public async Task<T> RequestAsync<T>(string requestUri)
         {
-            var response = await GetAsync(requestUri, ct);
+            var response = await GetAsync(requestUri);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -43,7 +46,7 @@ namespace ClashOfClans.Core.Utils
             return JsonSerializer.Deserialize<T>(result, StandardResolver.AllowPrivate);
         }
 
-        public async Task<T> SearchClansAsync<T>(string clanName, ClanSearchSettings clanSearchSettings = default, CancellationToken ct = default)
+        public async Task<T> SearchClansAsync<T>(string clanName, ClanSearchSettings clanSearchSettings = default)
         {
             var requestUri = $"clans?name={clanName}";
 
@@ -53,7 +56,7 @@ namespace ClashOfClans.Core.Utils
             if (string.IsNullOrEmpty(clanName) || clanName.Length < 3)
                 throw new ArgumentException("A clan name must be specified and greater than two characters.", nameof(clanName));
 
-            var response = await GetAsync(requestUri, ct);
+            var response = await GetAsync(requestUri);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -68,11 +71,14 @@ namespace ClashOfClans.Core.Utils
             return JsonSerializer.Deserialize<T>(result, StandardResolver.AllowPrivate);
         }
 
-        public async Task<T> GetClanMembersAsync<T>(string clanTag, BasicSearchSettings basicSearchSettings, CancellationToken ct = default)
+        public async Task<T> GetClanMembersAsync<T>(string clanTag, BasicSearchSettings basicSearchSettings)
         {
-            var requestUri = $"clans/{clanTag}/members?{basicSearchSettings.GetQueryString()}";
+            var requestUri = $"clans/{clanTag}/members";
 
-            var response = await GetAsync(requestUri, ct);
+            if (basicSearchSettings != null)
+                requestUri += $"?{basicSearchSettings.GetQueryString()}";
+
+            var response = await GetAsync(requestUri);
 
             if (!response.IsSuccessStatusCode)
             {
