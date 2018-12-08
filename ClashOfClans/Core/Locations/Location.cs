@@ -1,9 +1,12 @@
-﻿using ClashOfClans.Core.Clans.Interfaces;
+﻿using ClashOfClans.Core.Locations.Interfaces;
+using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text;
 
-namespace ClashOfClans.Core.Clans
+namespace ClashOfClans.Core.Locations
 {
-    public class ClanLocation : IClanLocation
+    public class Location : ILocation
     {
         [DataMember(Name = "id")]
         public int Id { get; private set; }

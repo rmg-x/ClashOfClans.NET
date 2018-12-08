@@ -8,6 +8,12 @@ namespace ClashOfClans.Core.Clans
 {
     public class CurrentWarClan : ICurrentWarClan
     {
+        [DataMember(Name = "tag")]
+        public string Tag { get; private set; }
+
+        [DataMember(Name = "name")]
+        public string Name { get; private set; }
+
         [DataMember(Name = "badgeUrls")]
         public ClanBadges Badges { get; private set; }
 
@@ -22,5 +28,8 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "destructionPercentage")]
         public double DestructionPercentage { get; private set; }
+
+        [DataMember(Name = "members")]
+        public IEnumerable<CurrentWarClanMember> Members { get; private set; }
     }
 }

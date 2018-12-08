@@ -24,6 +24,7 @@ namespace ClashOfClans.Core.Clans
         public async Task<IEnumerable<Clan>> SearchAsync(string clanName, ClanSearchSettings clanSearchSettings = default)
         {
             var result = await _httpClientService.SearchClansAsync<ClanSearchResult>(HttpUtility.UrlEncode(clanName), clanSearchSettings);
+
             return result.Clans;
         }
 

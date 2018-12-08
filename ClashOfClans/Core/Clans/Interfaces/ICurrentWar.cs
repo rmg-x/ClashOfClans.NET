@@ -8,6 +8,14 @@ namespace ClashOfClans.Core.Clans.Interfaces
     {
         WarState WarState { get; }
 
+        int TeamSize { get; }
+
+        string PreparationStartTime { get; }
+
+        string StartTime { get; }
+
+        string EndTime { get; }
+
         CurrentWarClan Clan { get; }
 
         CurrentWarClan Opponent { get; }

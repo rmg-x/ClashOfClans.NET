@@ -4,16 +4,22 @@
         <name>ClashOfClans</name>
     </assembly>
     <members>
-        <member name="M:ClashOfClans.ClashOfClansClient.#ctor(System.String,System.TimeSpan)">
+        <member name="M:ClashOfClans.ClashOfClansClient.#ctor(System.String,System.TimeSpan,System.Boolean)">
             <summary>
             Constructor for ClashOfClansClient
             </summary>
             <param name="token">Clash of Clans API token</param>
             <param name="timeout">Timeout for all requests (default is 100 seconds)</param>
+            <param name="UsePreemptiveRateLimits">Boolean to toggle Preemptive rate limits</param>
         </member>
         <member name="P:ClashOfClans.ClashOfClansClient.Clans">
             <summary>
             Pertains to the "Clans" section of the API
+            </summary>
+        </member>
+        <member name="P:ClashOfClans.ClashOfClansClient.Locations">
+            <summary>
+            Pertains to the "Locations" section of the API
             </summary>
         </member>
         <member name="M:ClashOfClans.Core.Clans.ClashClans.SearchAsync(System.String,ClashOfClans.Core.Clans.ClanSearchSettings)">
@@ -53,6 +59,12 @@
             </summary>
             <param name="clanTag">Clan tag to get current war for</param>
             <returns><see cref="T:ClashOfClans.Core.Clans.CurrentWar"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Locations.ClashLocations.GetLocationsAsync">
+            <summary>
+            Gets all available locations.
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
     </members>
 </doc>
