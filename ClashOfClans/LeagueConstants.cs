@@ -1,6 +1,6 @@
 ﻿namespace ClashOfClans
 {
-    public static class Leagues
+    public static class LeagueConstants
     {
         public const int Unranked = 29000000;
 

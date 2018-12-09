@@ -16,7 +16,9 @@ namespace ClashOfClans.Testing
             var tag = "#U8C2UP8L";
             var tag2 = "#22QC2YYV2";
 
-            var result = await coc.Leagues.GetLeaguesAsync();
+            var result = await coc.Players.GetPlayerByTagAsync("#Y0CYLJ0QP");
+
+            Console.WriteLine(result.Name + " | " + result.Clan.Name);
         }
     }
 }
