@@ -3,6 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>7.1</LangVersion>
+    <Authors>xRMG412</Authors>
+    <Company>None</Company>
+    <Product>ClashOfClans.NET</Product>
+    <PackageId>ClashOfClans.NET</PackageId>
+    <Description>A simple wrapper for the official clash of clans API.</Description>
+    <RepositoryUrl>https://github.com/xRMG412/ClashOfClans.NET</RepositoryUrl>
+    <PackageTags>ClashOfClans ClashOfClans.NET Clash.NET</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/xRMG412/ClashOfClans.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
