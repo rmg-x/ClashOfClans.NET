@@ -1,4 +1,5 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
+using ClashOfClans.Core.Leagues.Interfaces;
 using ClashOfClans.Core.Locations.Interfaces;
 
 namespace ClashOfClans.Core.Interfaces
@@ -8,5 +9,7 @@ namespace ClashOfClans.Core.Interfaces
         IClashClans Clans { get; }
 
         IClashLocations Locations { get; }
+
+        IClashLeagues Leagues { get; }
     }
 }

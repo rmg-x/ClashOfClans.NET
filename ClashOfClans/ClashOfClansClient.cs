@@ -1,6 +1,8 @@
 ﻿using ClashOfClans.Core.Clans;
 using ClashOfClans.Core.Clans.Interfaces;
 using ClashOfClans.Core.Interfaces;
+using ClashOfClans.Core.Leagues;
+using ClashOfClans.Core.Leagues.Interfaces;
 using ClashOfClans.Core.Locations;
 using ClashOfClans.Core.Locations.Interfaces;
 using ClashOfClans.Core.Utils;
@@ -17,13 +19,14 @@ namespace ClashOfClans
         /// </summary>
         /// <param name="token">Clash of Clans API token</param>
         /// <param name="timeout">Timeout for all requests (default is 100 seconds)</param>
-        /// <param name="UsePreemptiveRateLimits">Boolean to toggle Preemptive rate limits</param>
-        public ClashOfClansClient(string token, TimeSpan timeout = default, bool UsePreemptiveRateLimits = true)
+        /// <param name="UseRecommendedRateLimits">Boolean to toggle Preemptive rate limits</param>
+        public ClashOfClansClient(string token, TimeSpan timeout = default, bool UseRecommendedRateLimits = true)
         {
-            HttpClientService = HttpClientService.GetInstance(token, timeout, UsePreemptiveRateLimits);
+            HttpClientService = HttpClientService.GetInstance(token, timeout, UseRecommendedRateLimits);
 
             Clans = new ClashClans(HttpClientService);
             Locations = new ClashLocations(HttpClientService);
+            Leagues = new ClashLeagues(HttpClientService);
         }
 
         /// <summary>
@@ -35,6 +38,11 @@ namespace ClashOfClans
         /// Pertains to the "Locations" section of the API
         /// </summary>
         public IClashLocations Locations { get; private set; }
+
+        /// <summary>
+        /// Pertains to the "Leagues" section of the API
+        /// </summary>
+        public IClashLeagues Leagues { get; private set; }
 
         public void Dispose() => HttpClientService.Dispose();
     }

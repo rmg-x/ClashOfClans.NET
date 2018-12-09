@@ -20,7 +20,7 @@ namespace ClashOfClans.Core.Utils
 
         private TimeSpanSemaphore RequestPool { get; set; }
 
-        public static HttpClientService GetInstance(string token, TimeSpan requestTimeout, bool UsePreemptiveRateLimits)
+        public static HttpClientService GetInstance(string token, TimeSpan requestTimeout, bool UseRecommendedRateLimits)
         {
             var httpClientInstance = new HttpClientService();
 
@@ -31,7 +31,7 @@ namespace ClashOfClans.Core.Utils
             if (requestTimeout != default)
                 httpClientInstance.Timeout = requestTimeout;
 
-            if (UsePreemptiveRateLimits)
+            if (UseRecommendedRateLimits)
                 httpClientInstance.RequestPool = new TimeSpanSemaphore(REQUESTS_PER_SECOND, TimeSpan.FromSeconds(1));
             else
                 httpClientInstance.RequestPool = new TimeSpanSemaphore(1, TimeSpan.FromMilliseconds(0));
