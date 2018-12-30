@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ClashOfClans.Core.Locations.Interfaces
+﻿namespace ClashOfClans.Core.Locations.Interfaces
 {
     public interface ILocation
     {

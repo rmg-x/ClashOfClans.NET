@@ -1,10 +1,9 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
 using ClashOfClans.Core.Utils;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
-using System.Linq;
-using System;
 
 namespace ClashOfClans.Core.Clans
 {

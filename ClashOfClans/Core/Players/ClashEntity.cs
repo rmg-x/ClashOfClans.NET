@@ -1,8 +1,5 @@
 ﻿using ClashOfClans.Core.Players.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace ClashOfClans.Core.Players
 {
@@ -18,6 +15,6 @@ namespace ClashOfClans.Core.Players
         public int MaxLevel { get; private set; }
 
         [DataMember(Name = "village")]
-        public string Village { get; private set; }
+        public EntityVillage Village { get; private set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace ClashOfClans.Core.Utils
 {
@@ -27,9 +27,9 @@ namespace ClashOfClans.Core.Utils
             }
         }
 
-        public void Wait(CancellationToken cancelToken = default)
+        public async Task WaitAsync(CancellationToken cancelToken = default)
         {
-            _pool.Wait(cancelToken);
+            await _pool.WaitAsync(cancelToken);
 
             DateTime oldestRelease;
             lock (_queueLock)
@@ -44,6 +44,7 @@ namespace ClashOfClans.Core.Utils
                 int sleepMilliseconds = Math.Max((int)(windowReset.Subtract(now).Ticks / TimeSpan.TicksPerMillisecond), 1);
 
                 bool cancelled = cancelToken.WaitHandle.WaitOne(sleepMilliseconds);
+
                 if (cancelled)
                 {
                     Release();
@@ -58,6 +59,7 @@ namespace ClashOfClans.Core.Utils
             {
                 _releaseTimes.Enqueue(DateTime.UtcNow);
             }
+
             _pool.Release();
         }
 

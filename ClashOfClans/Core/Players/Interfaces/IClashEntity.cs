@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ClashOfClans.Core.Players.Interfaces
+﻿namespace ClashOfClans.Core.Players.Interfaces
 {
     public interface IClashEntity
     {
@@ -12,6 +8,6 @@ namespace ClashOfClans.Core.Players.Interfaces
 
         int MaxLevel { get; }
 
-        string Village { get; }
+        EntityVillage Village { get; }
     }
 }

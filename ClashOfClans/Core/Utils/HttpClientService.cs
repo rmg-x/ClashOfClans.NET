@@ -1,9 +1,7 @@
 ﻿using ClashOfClans.Core.Clans;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading;
 using System.Threading.Tasks;
 using Utf8Json;
 using Utf8Json.Resolvers;
@@ -18,6 +16,8 @@ namespace ClashOfClans.Core.Utils
 
         private const int REQUESTS_PER_SECOND = 10;
 
+        private const string MEDIA_TYPE = "application/json";
+
         private TimeSpanSemaphore RequestPool { get; set; }
 
         public static HttpClientService GetInstance(string token, TimeSpan requestTimeout, bool UseRecommendedRateLimits)
@@ -26,7 +26,7 @@ namespace ClashOfClans.Core.Utils
 
             httpClientInstance.BaseAddress = new Uri(COC_BASE_ADDRESS);
             httpClientInstance.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(SCHEME, token);
-            httpClientInstance.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClientInstance.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(MEDIA_TYPE));
 
             if (requestTimeout != default)
                 httpClientInstance.Timeout = requestTimeout;
@@ -41,7 +41,7 @@ namespace ClashOfClans.Core.Utils
 
         public async Task<T> RequestAsync<T>(string requestUri)
         {
-            RequestPool.Wait();
+            await RequestPool.WaitAsync().ConfigureAwait(false);
 
             var response = await GetAsync(requestUri).ConfigureAwait(false);
 
@@ -54,10 +54,11 @@ namespace ClashOfClans.Core.Utils
             }
 
             var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            var resultStream = await result.ToStreamAsync().ConfigureAwait(false);
 
             RequestPool.Release();
 
-            return JsonSerializer.Deserialize<T>(result, StandardResolver.AllowPrivate);
+            return await JsonSerializer.DeserializeAsync<T>(resultStream, StandardResolver.AllowPrivate).ConfigureAwait(false);
         }
 
         public async Task<T> SearchClansAsync<T>(string clanName, ClanSearchSettings clanSearchSettings = default)
@@ -70,23 +71,7 @@ namespace ClashOfClans.Core.Utils
             if (string.IsNullOrEmpty(clanName) || clanName.Length < 3)
                 throw new ArgumentException("A clan name must be specified and greater than two characters.", nameof(clanName));
 
-            RequestPool.Wait();
-
-            var response = await GetAsync(requestUri).ConfigureAwait(false);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                if (response.IsNotCriticalFailure())
-                    return default;
-                else
-                    response.EnsureSuccessStatusCode();
-            }
-
-            var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-
-            RequestPool.Release();
-
-            return JsonSerializer.Deserialize<T>(result, StandardResolver.AllowPrivate);
+            return await RequestAsync<T>(requestUri).ConfigureAwait(false);
         }
 
         public async Task<T> GetClanMembersAsync<T>(string clanTag, BasicSearchSettings basicSearchSettings)
@@ -96,23 +81,7 @@ namespace ClashOfClans.Core.Utils
             if (basicSearchSettings != null)
                 requestUri += $"?{basicSearchSettings.GetQueryString()}";
 
-            RequestPool.Wait();
-
-            var response = await GetAsync(requestUri).ConfigureAwait(false);
-
-            if (!response.IsSuccessStatusCode)
-            {
-                if (response.IsNotCriticalFailure())
-                    return default;
-                else
-                    response.EnsureSuccessStatusCode();
-            }
-
-            var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-
-            RequestPool.Release();
-
-            return JsonSerializer.Deserialize<T>(result, StandardResolver.AllowPrivate);
+            return await RequestAsync<T>(requestUri).ConfigureAwait(false);
         }
     }
 }
