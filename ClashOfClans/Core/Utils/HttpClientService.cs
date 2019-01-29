@@ -20,7 +20,7 @@ namespace ClashOfClans.Core.Utils
 
         private TimeSpanSemaphore RequestPool { get; set; }
 
-        public static HttpClientService GetInstance(string token, TimeSpan requestTimeout, bool UseRecommendedRateLimits)
+        public static HttpClientService CreateService(string token, TimeSpan requestTimeout, bool UseRecommendedRateLimits)
         {
             var httpClientInstance = new HttpClientService();
 

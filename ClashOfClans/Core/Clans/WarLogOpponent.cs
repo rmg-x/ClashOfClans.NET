@@ -1,9 +1,10 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
+using System;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
-    public class WarLogOpponent : IWarLogOpponent
+    public class WarLogOpponent : IWarLogOpponent, IEquatable<WarLogOpponent>
     {
         [DataMember(Name = "tag")]
         public string Tag { get; private set; }
@@ -22,5 +23,13 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "destructionPercentage")]
         public double DestructionPercentage { get; private set; }
+
+        public bool Equals(WarLogOpponent other)
+        {
+            if (other == null)
+                return false;
+
+            return Tag == other.Tag;
+        }
     }
 }

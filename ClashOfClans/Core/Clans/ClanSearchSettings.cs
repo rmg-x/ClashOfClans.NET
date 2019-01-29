@@ -1,11 +1,9 @@
 ﻿using ClashOfClans.Core.Interfaces;
 
-namespace ClashOfClans.Core.Clans
+namespace ClashOfClans
 {
     public class ClanSearchSettings : IClanSearchSettings
     {
-        public string Name { get; set; }
-
         public WarFrequency? WarFrequency { get; set; }
 
         public int? LocationId { get; set; }

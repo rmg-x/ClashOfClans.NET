@@ -2,8 +2,6 @@
 {
     public interface IClanSearchSettings
     {
-        string Name { get; set; }
-
         WarFrequency? WarFrequency { get; set; }
 
         int? LocationId { get; }

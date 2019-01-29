@@ -1,10 +1,11 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
-    public class CurrentWarClan : ICurrentWarClan
+    public class CurrentWarClan : ICurrentWarClan, IEquatable<CurrentWarClan>
     {
         [DataMember(Name = "tag")]
         public string Tag { get; private set; }
@@ -29,5 +30,13 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "members")]
         public IEnumerable<CurrentWarClanMember> Members { get; private set; }
+
+        public bool Equals(CurrentWarClan other)
+        {
+            if (other == null)
+                return false;
+
+            return Tag == other.Tag;
+        }
     }
 }
