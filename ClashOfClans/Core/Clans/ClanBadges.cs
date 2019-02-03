@@ -1,9 +1,10 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
+using System;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
-    public class ClanBadges : IClanBadges
+    public class ClanBadges : IClanBadges, IEquatable<ClanBadges>
     {
         [DataMember(Name = "small")]
         public string Small { get; private set; }
@@ -13,5 +14,15 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "large")]
         public string Large { get; private set; }
+
+        public bool Equals(ClanBadges other)
+        {
+            if (other == null)
+                return false;
+
+            return Small == other.Small
+                && Medium == other.Medium
+                && Large == other.Large;
+        }
     }
 }

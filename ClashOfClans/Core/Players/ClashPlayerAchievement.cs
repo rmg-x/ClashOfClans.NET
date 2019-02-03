@@ -1,9 +1,10 @@
 ﻿using ClashOfClans.Core.Players.Interfaces;
+using System;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Players
 {
-    public class ClashPlayerAchievement : IClashPlayerAchievement
+    public class ClashPlayerAchievement : IClashPlayerAchievement, IEquatable<ClashPlayerAchievement>
     {
         [DataMember(Name = "name")]
         public string Name { get; private set; }
@@ -25,5 +26,13 @@ namespace ClashOfClans.Core.Players
 
         [DataMember(Name = "village")]
         public string Village { get; private set; }
+
+        public bool Equals(ClashPlayerAchievement other)
+        {
+            if (other == null)
+                return false;
+
+            return Name == other.Name;
+        }
     }
 }
