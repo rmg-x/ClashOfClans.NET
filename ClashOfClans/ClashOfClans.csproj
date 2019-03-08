@@ -11,10 +11,11 @@
     <RepositoryUrl>https://github.com/xRMG412/ClashOfClans.NET</RepositoryUrl>
     <PackageTags>ClashOfClans ClashOfClans.NET Clash.NET</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageReleaseNotes>First release</PackageReleaseNotes>
+    <PackageReleaseNotes>Added recommended ratelimits, all API models now implement "IEquatable".</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/xRMG412/ClashOfClans.NET/blob/master/LICENSE</PackageLicenseUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
