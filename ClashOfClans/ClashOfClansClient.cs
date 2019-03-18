@@ -9,9 +9,6 @@ using ClashOfClans.Core.Players;
 using ClashOfClans.Core.Players.Interfaces;
 using ClashOfClans.Core.Utils;
 using System;
-using System.Net;
-using System.Net.Sockets;
-using System.Linq;
 
 namespace ClashOfClans
 {

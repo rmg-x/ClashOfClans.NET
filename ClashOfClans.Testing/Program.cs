@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
-using ClashOfClans.Core.Players;
-using ClashOfClans.Core.Clans;
 
 namespace ClashOfClans.Testing
 {
