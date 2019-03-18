@@ -13,7 +13,12 @@ namespace ClashOfClans.Tests
 
         public LeaguesTest()
         {
-            string token = File.ReadAllText("coc_token.txt");
+            string token = string.Empty;
+
+            if (File.Exists("coc_token.txt"))
+            {
+                token = File.ReadAllText("coc_token.txt");
+            }
 
             _cocClient = new ClashOfClansClient(token, TimeSpan.FromSeconds(2));
         }
