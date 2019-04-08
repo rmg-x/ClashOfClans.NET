@@ -5,12 +5,12 @@ namespace ClashOfClans.Core.Leagues.Interfaces
 {
     public interface IClashLeagues
     {
-        Task<IEnumerable<League>> GetLeaguesAsync();
+        Task<IEnumerable<ILeague>> GetLeaguesAsync();
 
-        Task<League> GetLeagueByIdAsync(int leagueId);
+        Task<ILeague> GetLeagueByIdAsync(int leagueId);
 
-        Task<IEnumerable<LeagueSeason>> GetLeagueSeasonsAsync(int leagueId);
+        Task<IEnumerable<ILeagueSeason>> GetLeagueSeasonsAsync(int leagueId);
 
-        Task<IEnumerable<LeagueSeasonRanking>> GetLeagueSeasonRankingsAsync(int leagueId, string seasonId);
+        Task<IEnumerable<ILeagueSeasonRanking>> GetLeagueSeasonRankingsAsync(int leagueId, string seasonId);
     }
 }
