@@ -9,6 +9,8 @@ namespace ClashOfClans
         [EnumMember(Value = "notInWar")]
         NotInWar,
         [EnumMember(Value = "preparation")]
-        Preparation
+        Preparation,
+        [EnumMember(Value = "warEnded")]
+        WarEnded
     }
 }

@@ -74,7 +74,9 @@ namespace ClashOfClans.Core.Clans
             var result = await _httpClientService.RequestAsync<CurrentWar>($"clans/{HttpUtility.UrlEncode(clanTag)}/currentwar");
 
             if (result.WarState == WarState.NotInWar)
+            {
                 return null;
+            }
 
             return result;
         }
