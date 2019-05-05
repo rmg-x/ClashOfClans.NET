@@ -70,6 +70,20 @@
             <param name="clanTag">Clan tag to get current war for</param>
             <returns><see cref="T:ClashOfClans.Core.Clans.CurrentWar"/></returns>
         </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetCurrentLeagueGroupAsync(System.String)">
+            <summary>
+            Retrieve information about clan's current clan war league group.
+            </summary>
+            <param name="clanTag">Clan tag to get current league group for</param>
+            <returns><see cref="T:ClashOfClans.Core.Clans.LeagueGroup"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanWarLeagueAsync(System.String)">
+            <summary>
+            Retrieve information about a clan war league war.
+            </summary>
+            <param name="warTag">War tag to retrieve information from</param>
+            <returns><see cref="T:ClashOfClans.Core.Clans.ClanWarLeague"/></returns>
+        </member>
         <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeaguesAsync">
             <summary>
             Gets a list of all leagues
