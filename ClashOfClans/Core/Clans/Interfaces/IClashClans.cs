@@ -14,5 +14,9 @@ namespace ClashOfClans.Core.Clans.Interfaces
         Task<IEnumerable<WarLog>> GetWarLogsAsync(string clanTag);
 
         Task<CurrentWar> GetCurrentWarAsync(string clanTag);
+
+        Task<LeagueGroup> GetCurrentLeagueGroupAsync(string clanTag);
+
+        Task<ClanWarLeague> GetClanWarLeagueAsync(string warTag);
     }
 }

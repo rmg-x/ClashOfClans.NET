@@ -80,5 +80,29 @@ namespace ClashOfClans.Core.Clans
 
             return result;
         }
+
+        /// <summary>
+        /// Retrieve information about clan's current clan war league group.
+        /// </summary>
+        /// <param name="clanTag">Clan tag to get current league group for</param>
+        /// <returns><see cref="LeagueGroup"/></returns>
+        public async Task<LeagueGroup> GetCurrentLeagueGroupAsync(string clanTag)
+        {
+            var result = await _httpClientService.RequestAsync<LeagueGroup>($"clans/{HttpUtility.UrlEncode(clanTag)}/currentwar/leaguegroup");
+
+            return result;
+        }
+
+        /// <summary>
+        /// Retrieve information about a clan war league war.
+        /// </summary>
+        /// <param name="warTag">War tag to retrieve information from</param>
+        /// <returns><see cref="ClanWarLeague"/></returns>
+        public async Task<ClanWarLeague> GetClanWarLeagueAsync(string warTag)
+        {
+            var result = await _httpClientService.RequestAsync<ClanWarLeague>($"clanwarleagues/wars/{HttpUtility.UrlEncode(warTag)}");
+
+            return result;
+        }
     }
 }
