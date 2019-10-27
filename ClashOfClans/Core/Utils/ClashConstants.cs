@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ClashOfClans.Core.Utils
+﻿namespace ClashOfClans.Core.Utils
 {
     internal static class ClashConstants
     {
