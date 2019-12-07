@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClashOfClans.Core.Interfaces;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -38,9 +39,15 @@ namespace ClashOfClans.Core.Utils
             return httpClientInstance;
         }
 
-        public async Task<T> RequestAsync<T>(string requestUri)
+        public async Task<T> RequestAsync<T>(string requestUri, ICustomSearchQuery searchQuery = default)
         {
             await RequestPool.WaitAsync().ConfigureAwait(false);
+
+            if (searchQuery != default)
+            {
+                requestUri += "?";
+                requestUri += searchQuery.GetQueryString();
+            }
 
             var response = await GetAsync(requestUri).ConfigureAwait(false);
 
@@ -58,29 +65,6 @@ namespace ClashOfClans.Core.Utils
             RequestPool.Release();
 
             return await JsonSerializer.DeserializeAsync<T>(resultStream, StandardResolver.AllowPrivate).ConfigureAwait(false);
-        }
-
-        public async Task<T> SearchClansAsync<T>(string clanName, ClanSearchSettings clanSearchSettings = default)
-        {
-            var requestUri = $"clans?name={clanName}";
-
-            if (clanSearchSettings != default)
-                requestUri += clanSearchSettings.GetQueryString();
-
-            if (string.IsNullOrEmpty(clanName) || clanName.Length < 3)
-                throw new ArgumentException("A clan name must be specified and greater than two characters.", nameof(clanName));
-
-            return await RequestAsync<T>(requestUri).ConfigureAwait(false);
-        }
-
-        public async Task<T> GetClanMembersAsync<T>(string clanTag, BasicSearchSettings basicSearchSettings)
-        {
-            var requestUri = $"clans/{clanTag}/members";
-
-            if (basicSearchSettings != null)
-                requestUri += $"?{basicSearchSettings.GetQueryString()}";
-
-            return await RequestAsync<T>(requestUri).ConfigureAwait(false);
         }
     }
 }

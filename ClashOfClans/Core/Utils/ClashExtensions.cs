@@ -42,56 +42,6 @@ namespace ClashOfClans.Core.Utils
             return warFreq;
         }
 
-        public static string GetQueryString(this ClanSearchSettings clanSearchSettings)
-        {
-            var requestUri = new StringBuilder();
-
-            if (clanSearchSettings.WarFrequency != null)
-                requestUri.Append($"&warFrequency={clanSearchSettings.WarFrequency.GetWarFrequency()}");
-
-            if (clanSearchSettings.LocationId != null)
-                requestUri.Append($"&locationId={clanSearchSettings.LocationId}");
-
-            if (clanSearchSettings.MinimumMembers != null)
-                requestUri.Append($"&minMembers={clanSearchSettings.MinimumMembers}");
-
-            if (clanSearchSettings.MaximumMembers != null)
-                requestUri.Append($"&maxMembers={clanSearchSettings.MaximumMembers}");
-
-            if (clanSearchSettings.MinimumClanPoints != null)
-                requestUri.Append($"&minClanPoints={clanSearchSettings.MinimumClanPoints}");
-
-            if (clanSearchSettings.MinimumClanLevel != null)
-                requestUri.Append($"&minClanLevel={clanSearchSettings.MinimumClanLevel}");
-
-            if (clanSearchSettings.Limit != null)
-                requestUri.Append($"&limit={clanSearchSettings.Limit}");
-
-            if (clanSearchSettings.After != null)
-                requestUri.Append($"&after={clanSearchSettings.After}");
-
-            if (clanSearchSettings.Before != null)
-                requestUri.Append($"&before={clanSearchSettings.Before}");
-
-            return requestUri.ToString();
-        }
-
-        public static string GetQueryString(this BasicSearchSettings basicSearchSettings)
-        {
-            var requestUri = new StringBuilder();
-
-            if (basicSearchSettings.Limit != null)
-                requestUri.Append($"&limit={basicSearchSettings.Limit}");
-
-            if (basicSearchSettings.After != null)
-                requestUri.Append($"&after={basicSearchSettings.After}");
-
-            if (basicSearchSettings.Before != null)
-                requestUri.Append($"&before={basicSearchSettings.Before}");
-
-            return requestUri.ToString();
-        }
-
         public static async Task<Stream> ToStreamAsync(this string str)
         {
             var stream = new MemoryStream();
