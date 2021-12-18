@@ -2,51 +2,52 @@
 using ClashOfClans.Core.Locations;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class Clan : IClan, IEquatable<Clan>
     {
-        [DataMember(Name = "tag")]
+        [JsonPropertyName("tag")]
         public string Tag { get; private set; }
 
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "type")]
+        [JsonPropertyName("type")]
         public ClanType Type { get; private set; }
 
-        [DataMember(Name = "location")]
+        [JsonPropertyName("location")]
         public Location Location { get; private set; }
 
-        [DataMember(Name = "badgeUrls")]
+        [JsonPropertyName("badgeUrls")]
         public ClanBadges Badges { get; private set; }
 
-        [DataMember(Name = "clanLevel")]
+        [JsonPropertyName("clanLevel")]
         public int ClanLevel { get; private set; }
 
-        [DataMember(Name = "clanPoints")]
+        [JsonPropertyName("clanPoints")]
         public int ClanPoints { get; private set; }
 
-        [DataMember(Name = "clanVersusPoints")]
+        [JsonPropertyName("clanVersusPoints")]
         public int ClanVersusPoints { get; private set; }
 
-        [DataMember(Name = "requiredTrophies")]
+        [JsonPropertyName("requiredTrophies")]
         public int RequiredTrophies { get; private set; }
 
-        [DataMember(Name = "warFrequency")]
+        [JsonPropertyName("warFrequency")]
         public WarFrequency WarFrequency { get; private set; }
 
-        [DataMember(Name = "warWinStreak")]
+        [JsonPropertyName("warWinStreak")]
         public int WarWinStreak { get; private set; }
 
-        [DataMember(Name = "warWins")]
+        [JsonPropertyName("warWins")]
         public int WarWins { get; private set; }
 
-        [DataMember(Name = "isWarLogPublic")]
+        [JsonPropertyName("isWarLogPublic")]
         public bool IsWarLogPublic { get; private set; }
 
-        [DataMember(Name = "members")]
+        [JsonPropertyName("members")]
         public int MemberCount { get; private set; }
 
         public bool Equals(Clan other)

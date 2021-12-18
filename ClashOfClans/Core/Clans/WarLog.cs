@@ -2,24 +2,25 @@
 using ClashOfClans.Core.Utils;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class WarLog : IWarLog, IEquatable<WarLog>
     {
-        [DataMember(Name = "result")]
+        [JsonPropertyName("result")]
         public WarResult Result { get; private set; }
 
-        [DataMember(Name = "endTime")]
+        [JsonPropertyName("endTime")]
         public DateTime EndTime { get; private set; }
 
-        [DataMember(Name = "teamSize")]
+        [JsonPropertyName("teamSize")]
         public int TeamSize { get; private set; }
 
-        [DataMember(Name = "clan")]
+        [JsonPropertyName("clan")]
         public WarLogClan Clan { get; private set; }
 
-        [DataMember(Name = "opponent")]
+        [JsonPropertyName("opponent")]
         public WarLogOpponent Opponent { get; private set; }
 
         public bool Equals(WarLog other)

@@ -1,18 +1,19 @@
 ﻿using ClashOfClans.Core.Leagues.Interfaces;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Leagues
 {
     public class LeagueIcons : ILeagueIcons, IEquatable<LeagueIcons>
     {
-        [DataMember(Name = "small")]
+        [JsonPropertyName("small")]
         public string Small { get; private set; }
 
-        [DataMember(Name = "tiny")]
+        [JsonPropertyName("tiny")]
         public string Tiny { get; private set; }
 
-        [DataMember(Name = "medium")]
+        [JsonPropertyName("medium")]
         public string Medium { get; private set; }
 
         public bool Equals(LeagueIcons other)

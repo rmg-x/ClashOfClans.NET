@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class LeagueGroupRound : ILeagueGroupRound, IEquatable<LeagueGroupRound>
     {
-        [DataMember(Name = "warTags")]
+        [JsonPropertyName("warTags")]
         public IEnumerable<string> WarTags { get; private set; }
 
         public bool Equals(LeagueGroupRound other)

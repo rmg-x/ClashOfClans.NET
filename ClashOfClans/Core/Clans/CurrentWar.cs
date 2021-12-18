@@ -2,30 +2,31 @@
 using ClashOfClans.Core.Utils;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class CurrentWar : ICurrentWar, IEquatable<CurrentWar>
     {
-        [DataMember(Name = "state")]
+        [JsonPropertyName("state")]
         public WarState WarState { get; private set; }
 
-        [DataMember(Name = "teamSize")]
+        [JsonPropertyName("teamSize")]
         public int TeamSize { get; private set; }
 
-        [DataMember(Name = "preparationStartTime")]
+        [JsonPropertyName("preparationStartTime")]
         public DateTime PreparationStartTime { get; private set; }
 
-        [DataMember(Name = "startTime")]
+        [JsonPropertyName("startTime")]
         public DateTime StartTime { get; private set; }
 
-        [DataMember(Name = "endTime")]
+        [JsonPropertyName("endTime")]
         public DateTime EndTime { get; private set; }
 
-        [DataMember(Name = "clan")]
+        [JsonPropertyName("clan")]
         public CurrentWarClan Clan { get; private set; }
 
-        [DataMember(Name = "opponent")]
+        [JsonPropertyName("opponent")]
         public CurrentWarClan Opponent { get; private set; }
 
         public bool Equals(CurrentWar other)

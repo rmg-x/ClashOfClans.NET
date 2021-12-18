@@ -1,18 +1,19 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class ClanBadges : IClanBadges, IEquatable<ClanBadges>
     {
-        [DataMember(Name = "small")]
+        [JsonPropertyName("small")]
         public string Small { get; private set; }
 
-        [DataMember(Name = "medium")]
+        [JsonPropertyName("medium")]
         public string Medium { get; private set; }
 
-        [DataMember(Name = "large")]
+        [JsonPropertyName("large")]
         public string Large { get; private set; }
 
         public bool Equals(ClanBadges other)

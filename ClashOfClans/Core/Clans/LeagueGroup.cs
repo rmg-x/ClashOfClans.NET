@@ -2,21 +2,22 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class LeagueGroup : ILeagueGroup, IEquatable<LeagueGroup>
     {
-        [DataMember(Name = "state")]
+        [JsonPropertyName("state")]
         public WarState WarState { get; private set; }
 
-        [DataMember(Name = "season")]
+        [JsonPropertyName("season")]
         public string Season { get; private set; }
 
-        [DataMember(Name = "clans")]
+        [JsonPropertyName("clans")]
         public IEnumerable<LeagueGroupClan> Clans { get; private set; }
 
-        [DataMember(Name = "rounds")]
+        [JsonPropertyName("rounds")]
         public IEnumerable<LeagueGroupRound> Rounds { get; private set; }
 
         public bool Equals(LeagueGroup other)

@@ -2,24 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class LeagueGroupClan : ILeagueGroupClan, IEquatable<LeagueGroupClan>
     {
-        [DataMember(Name = "tag")]
+        [JsonPropertyName("tag")]
         public string Tag { get; private set; }
 
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "clanLevel")]
+        [JsonPropertyName("clanLevel")]
         public int ClanLevel { get; private set; }
 
-        [DataMember(Name = "badgeUrls")]
+        [JsonPropertyName("badgeUrls")]
         public ClanBadges Badges { get; private set; }
 
-        [DataMember(Name = "members")]
+        [JsonPropertyName("members")]
         public IEnumerable<LeagueGroupClanMember> Members { get; private set; }
 
         public bool Equals(LeagueGroupClan other)

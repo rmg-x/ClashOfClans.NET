@@ -2,30 +2,31 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class CurrentWarClanMember : ICurrentWarClanMember, IEquatable<CurrentWarClanMember>
     {
-        [DataMember(Name = "tag")]
+        [JsonPropertyName("tag")]
         public string Tag { get; private set; }
 
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "townhallLevel")]
+        [JsonPropertyName("townhallLevel")]
         public int TownhallLevel { get; private set; }
 
-        [DataMember(Name = "mapPosition")]
+        [JsonPropertyName("mapPosition")]
         public int MapPosition { get; private set; }
 
-        [DataMember(Name = "attacks")]
+        [JsonPropertyName("attacks")]
         public IEnumerable<ClanMemberAttack> Attacks { get; private set; }
 
-        [DataMember(Name = "opponentAttacks")]
+        [JsonPropertyName("opponentAttacks")]
         public int OpponentAttackCount { get; private set; }
 
-        [DataMember(Name = "bestOpponentAttack")]
+        [JsonPropertyName("bestOpponentAttack")]
         public ClanMemberAttack BestOpponentAttack { get; private set; }
 
         public bool Equals(CurrentWarClanMember other)

@@ -2,21 +2,22 @@
 using ClashOfClans.Core.Players.Interfaces;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Players
 {
     public class ClashPlayerClan : IClashPlayerClan, IEquatable<ClashPlayerClan>
     {
-        [DataMember(Name = "tag")]
+        [JsonPropertyName("tag")]
         public string Tag { get; private set; }
 
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "clanLevel")]
+        [JsonPropertyName("clanLevel")]
         public int ClanLevel { get; private set; }
 
-        [DataMember(Name = "badgeUrls")]
+        [JsonPropertyName("badgeUrls")]
         public ClanBadges Badges { get; private set; }
 
         public bool Equals(ClashPlayerClan other)

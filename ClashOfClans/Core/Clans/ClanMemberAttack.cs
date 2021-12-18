@@ -1,24 +1,25 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class ClanMemberAttack : IClanMemberAttack, IEquatable<ClanMemberAttack>
     {
-        [DataMember(Name = "attackerTag")]
+        [JsonPropertyName("attackerTag")]
         public string AttackerTag { get; private set; }
 
-        [DataMember(Name = "defenderTag")]
+        [JsonPropertyName("defenderTag")]
         public string DefenderTag { get; private set; }
 
-        [DataMember(Name = "stars")]
+        [JsonPropertyName("stars")]
         public int Stars { get; private set; }
 
-        [DataMember(Name = "destructionPercentage")]
+        [JsonPropertyName("destructionPercentage")]
         public double DestructionPercentage { get; private set; }
 
-        [DataMember(Name = "order")]
+        [JsonPropertyName("order")]
         public int Order { get; private set; }
 
         public bool Equals(ClanMemberAttack other)
