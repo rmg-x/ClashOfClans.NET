@@ -2,6 +2,8 @@
 using ClashOfClans.Core.Utils;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -9,9 +11,12 @@ namespace ClashOfClans.Core.Clans
 {
     public class ClashClans : IClashClans
     {
-        private HttpClientService _httpClientService { get; set; }
+        private readonly HttpClient _httpClient;
 
-        public ClashClans(HttpClientService httpClientService) => _httpClientService = httpClientService;
+        public ClashClans(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
 
         /// <summary>
         /// Search all clans by name and/or filtering the results using various criteria. At least one filtering criteria must be defined and if name is used as part of search, it is required to be at least three characters long.
@@ -27,7 +32,15 @@ namespace ClashOfClans.Core.Clans
                 throw new ArgumentException("A clan name must be specified and greater than two characters.", nameof(clanName));
             }
 
-            var result = await _httpClientService.RequestAsync<ClanSearchResult>($"clans?name={HttpUtility.UrlEncode(clanName)}", clanSearchSettings);
+            string encodedClanName = HttpUtility.UrlEncode(clanName);
+            string requestUri = $"clans?name={encodedClanName}";
+
+            if (clanSearchSettings != default)
+            {
+                requestUri += "?" + clanSearchSettings.GetQueryString();
+            }
+
+            var result = await _httpClient.GetFromJsonAsync<ClanSearchResult>(requestUri);
 
             return result.Clans;
         }
@@ -39,7 +52,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="ClanInformation"/></returns>
         public async Task<ClanInformation> GetClanByTagAsync(string clanTag)
         {
-            var result = await _httpClientService.RequestAsync<ClanInformation>($"clans/{HttpUtility.UrlEncode(clanTag)}");
+            var result = await _httpClient.GetFromJsonAsync<ClanInformation>($"clans/{HttpUtility.UrlEncode(clanTag)}");
 
             return result;
         }
@@ -52,7 +65,14 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="IEnumerable{ClanMember}"/></returns>
         public async Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag, BasicSearchSettings searchSettings = default)
         {
-            var result = await _httpClientService.RequestAsync<ClanMembersResult>($"clans/{HttpUtility.UrlEncode(clanTag)}/members", searchSettings);
+            string requestUri = $"clans/{HttpUtility.UrlEncode(clanTag)}/members";
+
+            if (searchSettings != default)
+            {
+                requestUri = "?" + searchSettings.GetQueryString();
+            }
+
+            var result = await _httpClient.GetFromJsonAsync<ClanMembersResult>(requestUri);
 
             return result.Members;
         }
@@ -64,7 +84,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="IEnumerable{WarLog}"/></returns>
         public async Task<IEnumerable<WarLog>> GetWarLogsAsync(string clanTag)
         {
-            var result = await _httpClientService.RequestAsync<WarLogResult>($"clans/{HttpUtility.UrlEncode(clanTag)}/warlog");
+            var result = await _httpClient.GetFromJsonAsync<WarLogResult>($"clans/{HttpUtility.UrlEncode(clanTag)}/warlog");
 
             return result.WarLogs;
         }
@@ -76,7 +96,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="CurrentWar"/></returns>
         public async Task<CurrentWar> GetCurrentWarAsync(string clanTag)
         {
-            var result = await _httpClientService.RequestAsync<CurrentWar>($"clans/{HttpUtility.UrlEncode(clanTag)}/currentwar");
+            var result = await _httpClient.GetFromJsonAsync<CurrentWar>($"clans/{HttpUtility.UrlEncode(clanTag)}/currentwar");
 
             if (result.WarState == WarState.NotInWar)
             {
@@ -93,7 +113,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="LeagueGroup"/></returns>
         public async Task<LeagueGroup> GetCurrentLeagueGroupAsync(string clanTag)
         {
-            var result = await _httpClientService.RequestAsync<LeagueGroup>($"clans/{HttpUtility.UrlEncode(clanTag)}/currentwar/leaguegroup");
+            var result = await _httpClient.GetFromJsonAsync<LeagueGroup>($"clans/{HttpUtility.UrlEncode(clanTag)}/currentwar/leaguegroup");
 
             return result;
         }
@@ -105,7 +125,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="ClanWarLeague"/></returns>
         public async Task<ClanWarLeague> GetClanWarLeagueAsync(string warTag)
         {
-            var result = await _httpClientService.RequestAsync<ClanWarLeague>($"clanwarleagues/wars/{HttpUtility.UrlEncode(warTag)}");
+            var result = await _httpClient.GetFromJsonAsync<ClanWarLeague>($"clanwarleagues/wars/{HttpUtility.UrlEncode(warTag)}");
 
             return result;
         }

@@ -2,6 +2,8 @@
 using ClashOfClans.Core.Utils;
 using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -9,9 +11,12 @@ namespace ClashOfClans.Core.Leagues
 {
     public class ClashLeagues : IClashLeagues
     {
-        private HttpClientService _httpClientService { get; set; }
+        private readonly HttpClient _httpClient;
 
-        public ClashLeagues(HttpClientService httpClientService) => _httpClientService = httpClientService;
+        public ClashLeagues(HttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
 
         /// <summary>
         /// Gets a list of all leagues
@@ -19,7 +24,7 @@ namespace ClashOfClans.Core.Leagues
         /// <returns><see cref="IEnumerable{League}"/></returns>
         public async Task<IEnumerable<ILeague>> GetLeaguesAsync()
         {
-            var result = await _httpClientService.RequestAsync<LeaguesResult>("leagues");
+            var result = await _httpClient.GetFromJsonAsync<LeaguesResult>("leagues");
 
             return result.Leagues;
         }
@@ -31,7 +36,7 @@ namespace ClashOfClans.Core.Leagues
         /// <returns><see cref="League"/></returns>
         public async Task<ILeague> GetLeagueByIdAsync(int leagueId)
         {
-            var result = await _httpClientService.RequestAsync<League>($"leagues/{leagueId}");
+            var result = await _httpClient.GetFromJsonAsync<League>($"leagues/{leagueId}");
 
             return result;
         }
@@ -47,7 +52,7 @@ namespace ClashOfClans.Core.Leagues
             if (leagueId != LeagueConstants.LegendLeague)
                 throw new ArgumentException($"Seasons are only available for \"Legendary League\"", nameof(leagueId));
 
-            var result = await _httpClientService.RequestAsync<LeagueSeasonsResult>($"leagues/{leagueId}/seasons");
+            var result = await _httpClient.GetFromJsonAsync<LeagueSeasonsResult>($"leagues/{leagueId}/seasons");
 
             return result.LeagueSeasons;
         }
@@ -60,7 +65,7 @@ namespace ClashOfClans.Core.Leagues
         /// <returns><see cref="IEnumerable{LeagueSeasonRanking}"/></returns>
         public async Task<IEnumerable<ILeagueSeasonRanking>> GetLeagueSeasonRankingsAsync(int leagueId, string seasonId)
         {
-            var result = await _httpClientService.RequestAsync<LeagueSeasonRankingResult>($"leagues/{leagueId}/seasons/{HttpUtility.UrlEncode(seasonId)}");
+            var result = await _httpClient.GetFromJsonAsync<LeagueSeasonRankingResult>($"leagues/{leagueId}/seasons/{HttpUtility.UrlEncode(seasonId)}");
 
             return result.LeagueSeasonRankings;
         }

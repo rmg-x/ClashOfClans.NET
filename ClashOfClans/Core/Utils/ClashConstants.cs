@@ -2,6 +2,12 @@
 {
     internal static class ClashConstants
     {
-        public const string CLASH_DATE_FORMAT = "yyyyMMdd'T'HHmmss.fff'Z'";
+        public const string ApiBaseAddress = "https://api.clashofclans.com/v1/";
+
+        public const string ApiAuthScheme = "Bearer";
+
+        public const string MediaType = "application/json";
+
+        public const string ClashDateFormat = "yyyyMMdd'T'HHmmss.fff'Z'";
     }
 }
