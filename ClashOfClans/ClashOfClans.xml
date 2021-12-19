@@ -12,7 +12,7 @@
         </member>
         <member name="M:ClashOfClans.ClashOfClansClient.#ctor(System.String,System.Net.Http.IHttpClientFactory)">
             <summary>
-            Constructor for ClashOfClansClient, uses an <see cref="T:System.Net.Http.IHttpClientFactory" /> to create the HTTP client.
+            Constructor for ClashOfClansClient, uses <see cref="T:System.Net.Http.IHttpClientFactory" /> to create the HTTP client.
             </summary>
             <param name="apiToken"></param>
             <param name="httpClientFactory"></param>

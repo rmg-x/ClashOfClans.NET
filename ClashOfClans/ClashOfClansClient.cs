@@ -25,7 +25,7 @@ namespace ClashOfClans
         { }
 
         /// <summary>
-        /// Constructor for ClashOfClansClient, uses an <see cref="IHttpClientFactory" /> to create the HTTP client.
+        /// Constructor for ClashOfClansClient, uses <see cref="IHttpClientFactory" /> to create the HTTP client.
         /// </summary>
         /// <param name="apiToken"></param>
         /// <param name="httpClientFactory"></param>
