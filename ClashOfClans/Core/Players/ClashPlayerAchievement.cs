@@ -8,25 +8,25 @@ namespace ClashOfClans.Core.Players
     public class ClashPlayerAchievement : IClashPlayerAchievement, IEquatable<ClashPlayerAchievement>
     {
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("stars")]
-        public int Stars { get; private set; }
+        public int Stars { get; set; }
 
         [JsonPropertyName("value")]
-        public int Value { get; private set; }
+        public int Value { get; set; }
 
         [JsonPropertyName("target")]
-        public int Target { get; private set; }
+        public int Target { get; set; }
 
         [JsonPropertyName("info")]
-        public string Description { get; private set; }
+        public string Description { get; set; }
 
         [JsonPropertyName("completionInfo")]
-        public string CompletionInformation { get; private set; }
+        public string CompletionInformation { get; set; }
 
         [JsonPropertyName("village")]
-        public string Village { get; private set; }
+        public string Village { get; set; }
 
         public bool Equals(ClashPlayerAchievement other)
         {

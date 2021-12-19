@@ -7,6 +7,6 @@ namespace ClashOfClans.Core.Locations
     public class LocationsResult
     {
         [JsonPropertyName("items")]
-        public IEnumerable<Location> Locations { get; private set; }
+        public IEnumerable<Location> Locations { get; set; }
     }
 }

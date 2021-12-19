@@ -9,19 +9,19 @@ namespace ClashOfClans.Core.Clans
     public class WarLog : IWarLog, IEquatable<WarLog>
     {
         [JsonPropertyName("result")]
-        public WarResult Result { get; private set; }
+        public WarResult Result { get; set; }
 
         [JsonPropertyName("endTime")]
-        public DateTime EndTime { get; private set; }
+        public DateTime EndTime { get; set; }
 
         [JsonPropertyName("teamSize")]
-        public int TeamSize { get; private set; }
+        public int TeamSize { get; set; }
 
         [JsonPropertyName("clan")]
-        public WarLogClan Clan { get; private set; }
+        public WarLogClan Clan { get; set; }
 
         [JsonPropertyName("opponent")]
-        public WarLogOpponent Opponent { get; private set; }
+        public WarLogOpponent Opponent { get; set; }
 
         public bool Equals(WarLog other)
         {

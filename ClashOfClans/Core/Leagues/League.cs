@@ -8,13 +8,13 @@ namespace ClashOfClans.Core.Leagues
     public class League : ILeague, IEquatable<League>
     {
         [JsonPropertyName("id")]
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("iconUrls")]
-        public LeagueIcons Icons { get; private set; }
+        public LeagueIcons Icons { get; set; }
 
         public bool Equals(League other)
         {

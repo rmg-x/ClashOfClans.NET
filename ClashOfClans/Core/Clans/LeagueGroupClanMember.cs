@@ -8,13 +8,13 @@ namespace ClashOfClans.Core.Clans
     public class LeagueGroupClanMember : ILeageGroupClanMember, IEquatable<LeagueGroupClanMember>
     {
         [JsonPropertyName("tag")]
-        public string Tag { get; private set; }
+        public string Tag { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("townHallLevel")]
-        public int TownhallLevel { get; private set; }
+        public int TownhallLevel { get; set; }
 
         public bool Equals(LeagueGroupClanMember other)
         {

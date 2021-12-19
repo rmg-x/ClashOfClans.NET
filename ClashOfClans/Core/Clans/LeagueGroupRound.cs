@@ -9,7 +9,7 @@ namespace ClashOfClans.Core.Clans
     public class LeagueGroupRound : ILeagueGroupRound, IEquatable<LeagueGroupRound>
     {
         [JsonPropertyName("warTags")]
-        public IEnumerable<string> WarTags { get; private set; }
+        public IEnumerable<string> WarTags { get; set; }
 
         public bool Equals(LeagueGroupRound other)
         {

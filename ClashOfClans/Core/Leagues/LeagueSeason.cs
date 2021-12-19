@@ -8,7 +8,7 @@ namespace ClashOfClans.Core.Leagues
     public class LeagueSeason : ILeagueSeason, IEquatable<LeagueSeason>
     {
         [JsonPropertyName("id")]
-        public string Id { get; private set; }
+        public string Id { get; set; }
 
         public bool Equals(LeagueSeason other)
         {

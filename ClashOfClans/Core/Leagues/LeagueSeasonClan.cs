@@ -9,13 +9,13 @@ namespace ClashOfClans.Core.Leagues
     public class LeagueSeasonClan : ILeagueSeasonClan, IEquatable<LeagueSeasonClan>
     {
         [JsonPropertyName("tag")]
-        public string Tag { get; private set; }
+        public string Tag { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("badgeUrls")]
-        public ClanBadges Badges { get; private set; }
+        public ClanBadges Badges { get; set; }
 
         public bool Equals(LeagueSeasonClan other)
         {

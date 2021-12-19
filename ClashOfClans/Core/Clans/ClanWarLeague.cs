@@ -9,28 +9,28 @@ namespace ClashOfClans.Core.Clans
     public class ClanWarLeague : IClanWarLeague, IEquatable<ClanWarLeague>
     {
         [JsonPropertyName("warStartTime")]
-        public DateTime WarStartTime { get; private set; }
+        public DateTime WarStartTime { get; set; }
 
         [JsonPropertyName("state")]
-        public WarState WarState { get; private set; }
+        public WarState WarState { get; set; }
 
         [JsonPropertyName("teamSize")]
-        public int TeamSize { get; private set; }
+        public int TeamSize { get; set; }
 
         [JsonPropertyName("preparationStartTime")]
-        public DateTime PreparationStartTime { get; private set; }
+        public DateTime PreparationStartTime { get; set; }
 
         [JsonPropertyName("startTime")]
-        public DateTime StartTime { get; private set; }
+        public DateTime StartTime { get; set; }
 
         [JsonPropertyName("endTime")]
-        public DateTime EndTime { get; private set; }
+        public DateTime EndTime { get; set; }
 
         [JsonPropertyName("clan")]
-        public CurrentWarClan Clan { get; private set; }
+        public CurrentWarClan Clan { get; set; }
 
         [JsonPropertyName("opponent")]
-        public CurrentWarClan Opponent { get; private set; }
+        public CurrentWarClan Opponent { get; set; }
 
         public bool Equals(ClanWarLeague other)
         {

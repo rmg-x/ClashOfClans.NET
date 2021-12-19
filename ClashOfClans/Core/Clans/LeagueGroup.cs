@@ -9,16 +9,16 @@ namespace ClashOfClans.Core.Clans
     public class LeagueGroup : ILeagueGroup, IEquatable<LeagueGroup>
     {
         [JsonPropertyName("state")]
-        public WarState WarState { get; private set; }
+        public WarState WarState { get; set; }
 
         [JsonPropertyName("season")]
-        public string Season { get; private set; }
+        public string Season { get; set; }
 
         [JsonPropertyName("clans")]
-        public IEnumerable<LeagueGroupClan> Clans { get; private set; }
+        public IEnumerable<LeagueGroupClan> Clans { get; set; }
 
         [JsonPropertyName("rounds")]
-        public IEnumerable<LeagueGroupRound> Rounds { get; private set; }
+        public IEnumerable<LeagueGroupRound> Rounds { get; set; }
 
         public bool Equals(LeagueGroup other)
         {

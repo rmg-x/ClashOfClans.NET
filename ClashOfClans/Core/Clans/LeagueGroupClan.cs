@@ -9,19 +9,19 @@ namespace ClashOfClans.Core.Clans
     public class LeagueGroupClan : ILeagueGroupClan, IEquatable<LeagueGroupClan>
     {
         [JsonPropertyName("tag")]
-        public string Tag { get; private set; }
+        public string Tag { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("clanLevel")]
-        public int ClanLevel { get; private set; }
+        public int ClanLevel { get; set; }
 
         [JsonPropertyName("badgeUrls")]
-        public ClanBadges Badges { get; private set; }
+        public ClanBadges Badges { get; set; }
 
         [JsonPropertyName("members")]
-        public IEnumerable<LeagueGroupClanMember> Members { get; private set; }
+        public IEnumerable<LeagueGroupClanMember> Members { get; set; }
 
         public bool Equals(LeagueGroupClan other)
         {

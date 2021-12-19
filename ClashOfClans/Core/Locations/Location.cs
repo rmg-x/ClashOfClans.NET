@@ -8,16 +8,16 @@ namespace ClashOfClans.Core.Locations
     public class Location : ILocation, IEquatable<Location>
     {
         [JsonPropertyName("id")]
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("isCountry")]
-        public bool IsCountry { get; private set; }
+        public bool IsCountry { get; set; }
 
         [JsonPropertyName("countryCode")]
-        public string CountryCode { get; private set; }
+        public string CountryCode { get; set; }
 
         public bool Equals(Location other)
         {

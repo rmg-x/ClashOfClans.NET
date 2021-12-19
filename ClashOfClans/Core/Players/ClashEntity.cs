@@ -8,16 +8,16 @@ namespace ClashOfClans.Core.Players
     public class ClashEntity : IClashEntity, IEquatable<ClashEntity>
     {
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("level")]
-        public int Level { get; private set; }
+        public int Level { get; set; }
 
         [JsonPropertyName("maxLevel")]
-        public int MaxLevel { get; private set; }
+        public int MaxLevel { get; set; }
 
         [JsonPropertyName("village")]
-        public EntityVillage Village { get; private set; }
+        public EntityVillage Village { get; set; }
 
         public bool Equals(ClashEntity other)
         {
