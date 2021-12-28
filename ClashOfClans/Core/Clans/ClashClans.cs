@@ -19,7 +19,9 @@ namespace ClashOfClans.Core.Clans
         }
 
         /// <summary>
-        /// Search all clans by name and/or filtering the results using various criteria. At least one filtering criteria must be defined and if name is used as part of search, it is required to be at least three characters long.
+        /// Search all clans by name and/or filtering the results using various criteria. 
+        /// <br />
+        /// At least one filtering criteria must be defined and if name is used as part of search, it is required to be at least three characters long.
         /// </summary>
         /// <param name="clanName">Clan name to search for</param>
         /// <param name="clanSearchSettings">Search criteria</param>
