@@ -140,5 +140,13 @@
             <param name="playerTag">Player tag</param>
             <returns><see cref="T:ClashOfClans.Core.Players.ClashPlayer"/></returns>
         </member>
+        <member name="M:ClashOfClans.Core.Players.ClashPlayers.VerifyApiToken(System.String,System.String)">
+            <summary>
+            Verify player API token that can be found from the game settings
+            </summary>
+            <param name="playerTag">Player tag</param>
+            <param name="apiToken">API token</param>
+            <returns><see langword="true" /> if token is valid, else <see langword="false" /></returns>
+        </member>
     </members>
 </doc>
