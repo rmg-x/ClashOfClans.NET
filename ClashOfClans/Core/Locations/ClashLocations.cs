@@ -22,7 +22,7 @@ namespace ClashOfClans.Core.Locations
         /// <returns><see cref="IEnumerable{Location}"/></returns>
         public async Task<IEnumerable<Location>> GetLocationsAsync()
         {
-            var result = await _httpClient.GetFromJsonAsync<LocationsResult>("locations");
+            var result = await _httpClient.GetFromJsonAsync<LocationsResult>("locations", ClashConstants.DefaultJsonSerializerOptions);
 
             return result.Locations;
         }
@@ -34,7 +34,7 @@ namespace ClashOfClans.Core.Locations
         /// <returns><see cref="Location"/></returns>
         public async Task<Location> GetLocationByIdAsync(int id)
         {
-            var result = await _httpClient.GetFromJsonAsync<Location>($"locations/{id}");
+            var result = await _httpClient.GetFromJsonAsync<Location>($"locations/{id}", ClashConstants.DefaultJsonSerializerOptions);
 
             return result;
         }

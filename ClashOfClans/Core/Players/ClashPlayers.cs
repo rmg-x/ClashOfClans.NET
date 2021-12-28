@@ -23,7 +23,7 @@ namespace ClashOfClans.Core.Players
         /// <returns><see cref="ClashPlayer"/></returns>
         public async Task<ClashPlayer> GetPlayerByTagAsync(string playerTag)
         {
-            var result = await _httpClient.GetFromJsonAsync<ClashPlayer>($"players/{HttpUtility.UrlEncode(playerTag)}");
+            var result = await _httpClient.GetFromJsonAsync<ClashPlayer>($"players/{HttpUtility.UrlEncode(playerTag)}", ClashConstants.DefaultJsonSerializerOptions);
 
             return result;
         }
