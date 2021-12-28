@@ -38,6 +38,27 @@
             </summary>
         </member>
         <member name="M:ClashOfClans.Core.Clans.ClashClans.SearchAsync(System.String,ClashOfClans.ClanSearchSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanByTagAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanMembersAsync(System.String,ClashOfClans.BasicSearchSettings)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetWarLogsAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetCurrentWarAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetCurrentLeagueGroupAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanWarLeagueAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Clans.Interfaces.IClashClans.SearchAsync(System.String,ClashOfClans.ClanSearchSettings)">
             <summary>
             Search all clans by name and/or filtering the results using various criteria. 
             <br />
@@ -48,14 +69,14 @@
             <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
             <exception cref="T:System.ArgumentException"><paramref name="clanName"/></exception>
         </member>
-        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanByTagAsync(System.String)">
+        <member name="M:ClashOfClans.Core.Clans.Interfaces.IClashClans.GetClanByTagAsync(System.String)">
             <summary>
             Get information about a single clan by clan tag.
             </summary>
             <param name="clanTag">Clan tag to search for</param>
             <returns><see cref="T:ClashOfClans.Core.Clans.ClanInformation"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanMembersAsync(System.String,ClashOfClans.BasicSearchSettings)">
+        <member name="M:ClashOfClans.Core.Clans.Interfaces.IClashClans.GetClanMembersAsync(System.String,ClashOfClans.BasicSearchSettings)">
             <summary>
             Returns a list of clan members based on the clan tag and search criteria.
             </summary>
@@ -63,28 +84,28 @@
             <param name="searchSettings">Basic search criteria</param>
             <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetWarLogsAsync(System.String)">
+        <member name="M:ClashOfClans.Core.Clans.Interfaces.IClashClans.GetWarLogsAsync(System.String)">
             <summary>
             Retrieve a clan war log.
             </summary>
             <param name="clanTag">Clan tag to search for</param>
             <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetCurrentWarAsync(System.String)">
+        <member name="M:ClashOfClans.Core.Clans.Interfaces.IClashClans.GetCurrentWarAsync(System.String)">
             <summary>
             Gets the current war, returns null if the clan is not currently in war.
             </summary>
             <param name="clanTag">Clan tag to get current war for</param>
             <returns><see cref="T:ClashOfClans.Core.Clans.CurrentWar"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetCurrentLeagueGroupAsync(System.String)">
+        <member name="M:ClashOfClans.Core.Clans.Interfaces.IClashClans.GetCurrentLeagueGroupAsync(System.String)">
             <summary>
             Retrieve information about clan's current clan war league group.
             </summary>
             <param name="clanTag">Clan tag to get current league group for</param>
             <returns><see cref="T:ClashOfClans.Core.Clans.LeagueGroup"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Clans.ClashClans.GetClanWarLeagueAsync(System.String)">
+        <member name="M:ClashOfClans.Core.Clans.Interfaces.IClashClans.GetClanWarLeagueAsync(System.String)">
             <summary>
             Retrieve information about a clan war league war.
             </summary>
@@ -92,19 +113,31 @@
             <returns><see cref="T:ClashOfClans.Core.Clans.ClanWarLeague"/></returns>
         </member>
         <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeaguesAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueByIdAsync(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueSeasonsAsync(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueSeasonRankingsAsync(System.Int32,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Leagues.Interfaces.IClashLeagues.GetLeaguesAsync">
             <summary>
             Gets a list of all leagues
             </summary>
             <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueByIdAsync(System.Int32)">
+        <member name="M:ClashOfClans.Core.Leagues.Interfaces.IClashLeagues.GetLeagueByIdAsync(System.Int32)">
             <summary>
             Get league information from a league id
             </summary>
             <param name="leagueId">League id to get</param>
             <returns><see cref="T:ClashOfClans.Core.Leagues.League"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueSeasonsAsync(System.Int32)">
+        <member name="M:ClashOfClans.Core.Leagues.Interfaces.IClashLeagues.GetLeagueSeasonsAsync(System.Int32)">
             <summary>
             Gets all league seasons, only available for "Legendary League"
             </summary>
@@ -112,7 +145,7 @@
             <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
             <exception cref="T:System.ArgumentException"></exception>
         </member>
-        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueSeasonRankingsAsync(System.Int32,System.String)">
+        <member name="M:ClashOfClans.Core.Leagues.Interfaces.IClashLeagues.GetLeagueSeasonRankingsAsync(System.Int32,System.String)">
             <summary>
             Get league season rankings, only available for "Legendary League"
             </summary>
@@ -121,12 +154,18 @@
             <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
         <member name="M:ClashOfClans.Core.Locations.ClashLocations.GetLocationsAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Locations.ClashLocations.GetLocationByIdAsync(System.Int32)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Locations.Interfaces.IClashLocations.GetLocationsAsync">
             <summary>
             Gets all available locations.
             </summary>
             <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Locations.ClashLocations.GetLocationByIdAsync(System.Int32)">
+        <member name="M:ClashOfClans.Core.Locations.Interfaces.IClashLocations.GetLocationByIdAsync(System.Int32)">
             <summary>
             Get a location by its ID
             </summary>
@@ -134,13 +173,19 @@
             <returns><see cref="T:ClashOfClans.Core.Locations.Location"/></returns>
         </member>
         <member name="M:ClashOfClans.Core.Players.ClashPlayers.GetPlayerByTagAsync(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Players.ClashPlayers.VerifyApiToken(System.String,System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.Players.Interfaces.IClashPlayers.GetPlayerByTagAsync(System.String)">
             <summary>
             Gets a player based off the given tag
             </summary>
             <param name="playerTag">Player tag</param>
             <returns><see cref="T:ClashOfClans.Core.Players.ClashPlayer"/></returns>
         </member>
-        <member name="M:ClashOfClans.Core.Players.ClashPlayers.VerifyApiToken(System.String,System.String)">
+        <member name="M:ClashOfClans.Core.Players.Interfaces.IClashPlayers.VerifyApiToken(System.String,System.String)">
             <summary>
             Verify player API token that can be found from the game settings
             </summary>
