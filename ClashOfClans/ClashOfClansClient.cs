@@ -1,5 +1,7 @@
 ﻿using ClashOfClans.Core.Clans;
 using ClashOfClans.Core.Clans.Interfaces;
+using ClashOfClans.Core.Goldpass;
+using ClashOfClans.Core.GoldPass.Interfaces;
 using ClashOfClans.Core.Interfaces;
 using ClashOfClans.Core.Leagues;
 using ClashOfClans.Core.Leagues.Interfaces;
@@ -42,6 +44,7 @@ namespace ClashOfClans
 
             Clans = new ClashClans(httpClient);
             Locations = new ClashLocations(httpClient);
+            GoldPass = new ClashGoldPass(httpClient);
             Leagues = new ClashLeagues(httpClient);
             Players = new ClashPlayers(httpClient);
         }
@@ -55,6 +58,11 @@ namespace ClashOfClans
         /// Pertains to the "Locations" section of the API
         /// </summary>
         public IClashLocations Locations { get; private set; }
+
+        /// <summary>
+        /// Pertains to the "GoldPass" section of the API
+        /// </summary>
+        public IClashGoldPass GoldPass { get; private set; }
 
         /// <summary>
         /// Pertains to the "Leagues" section of the API

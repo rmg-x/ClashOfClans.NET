@@ -1,4 +1,5 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
+using ClashOfClans.Core.GoldPass.Interfaces;
 using ClashOfClans.Core.Leagues.Interfaces;
 using ClashOfClans.Core.Locations.Interfaces;
 using ClashOfClans.Core.Players.Interfaces;
@@ -10,6 +11,8 @@ namespace ClashOfClans.Core.Interfaces
         IClashClans Clans { get; }
 
         IClashLocations Locations { get; }
+
+        IClashGoldPass GoldPass { get; }
 
         IClashLeagues Leagues { get; }
 
