@@ -1,7 +1,6 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
 using ClashOfClans.Core.Leagues;
 using System;
-using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
