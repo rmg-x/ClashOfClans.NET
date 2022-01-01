@@ -42,6 +42,11 @@
             Pertains to the "Players" section of the API
             </summary>
         </member>
+        <member name="P:ClashOfClans.ClashOfClansClient.Labels">
+            <summary>
+            Pertains to the "Labels" section of the API
+            </summary>
+        </member>
         <member name="M:ClashOfClans.Core.Clans.ClashClans.SearchAsync(System.String,ClashOfClans.ClanSearchSettings)">
             <inheritdoc />
         </member>
@@ -125,6 +130,18 @@
             Get information about the current gold pass season
             </summary>
             <returns><see cref="T:ClashOfClans.Core.GoldPass.GoldPassInformation" /></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Labels.Interfaces.IClashLabels.GetPlayerLabelsAsync">
+            <summary>
+            Get a list of player labels
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Labels.Interfaces.IClashLabels.GetClanLabelsAsync">
+            <summary>
+            Get a list of clan labels
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
         </member>
         <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeaguesAsync">
             <inheritdoc />
