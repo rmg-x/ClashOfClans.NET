@@ -4,6 +4,14 @@
 ## ClashOfClans.NET
 A simple wrapper for the official clash of clans API.
 
+
+## Installation
+NuGet package manager console:
+`Install-Package ClashOfClans.NET`
+
+Or using the .NET core CLI:
+`dotnet add package ClashOfClans.NET`
+
 ## Usage (basic)
 ```cs
 using ClashOfClans;
