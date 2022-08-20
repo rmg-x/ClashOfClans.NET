@@ -8,9 +8,9 @@ namespace ClashOfClans.Core.Utils
         public static JsonSerializerOptions DefaultJsonSerializerOptions = new JsonSerializerOptions
         {
             Converters =
-                {
-                    new JsonStringEnumConverter()
-                }
+            {
+                new JsonStringEnumConverter()
+            }
         };
 
         public const string ApiBaseAddress = "https://api.clashofclans.com/v1/";
