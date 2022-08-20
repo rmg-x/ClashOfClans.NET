@@ -19,7 +19,7 @@ namespace ClashOfClans.Core.Leagues
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<ILeague>> GetLeaguesAsync()
+        public async Task<IEnumerable<League>> GetLeaguesAsync()
         {
             var result = await _httpClient.GetFromJsonAsync<LeaguesResult>("leagues", ClashConstants.DefaultJsonSerializerOptions);
 
@@ -27,7 +27,7 @@ namespace ClashOfClans.Core.Leagues
         }
 
         /// <inheritdoc />
-        public async Task<ILeague> GetLeagueByIdAsync(int leagueId)
+        public async Task<League> GetLeagueByIdAsync(int leagueId)
         {
             var result = await _httpClient.GetFromJsonAsync<League>($"leagues/{leagueId}", ClashConstants.DefaultJsonSerializerOptions);
 
@@ -35,7 +35,7 @@ namespace ClashOfClans.Core.Leagues
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<ILeagueSeason>> GetLeagueSeasonsAsync(int leagueId)
+        public async Task<IEnumerable<LeagueSeason>> GetLeagueSeasonsAsync(int leagueId)
         {
             if (leagueId != LeagueConstants.LegendLeague)
             {
@@ -48,7 +48,7 @@ namespace ClashOfClans.Core.Leagues
         }
 
         /// <inheritdoc />
-        public async Task<IEnumerable<ILeagueSeasonRanking>> GetLeagueSeasonRankingsAsync(int leagueId, string seasonId)
+        public async Task<IEnumerable<LeagueSeasonRanking>> GetLeagueSeasonRankingsAsync(int leagueId, string seasonId)
         {
             var result = await _httpClient.GetFromJsonAsync<LeagueSeasonRankingResult>($"leagues/{leagueId}/seasons/{HttpUtility.UrlEncode(seasonId)}",
                                                                                        ClashConstants.DefaultJsonSerializerOptions);
