@@ -1,9 +1,7 @@
 ﻿using ClashOfClans.Core.Leagues;
 using ClashOfClans.Core.Players.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace ClashOfClans.Core.Players
 {

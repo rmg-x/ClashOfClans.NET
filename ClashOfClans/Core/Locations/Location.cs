@@ -1,8 +1,5 @@
 ﻿using ClashOfClans.Core.Locations.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace ClashOfClans.Core.Locations
 {

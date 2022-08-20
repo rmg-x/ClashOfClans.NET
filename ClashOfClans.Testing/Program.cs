@@ -1,10 +1,6 @@
 ﻿using System;
-using ClashOfClans;
-using System.Linq;
-using ClashOfClans.Core.Clans;
 using System.Threading.Tasks;
-using System.Diagnostics;
-using System.Collections.Generic;
+using ClashOfClans;
 
 namespace ClashOfClans.Testing
 {
@@ -15,8 +11,6 @@ namespace ClashOfClans.Testing
             var coc = new ClashOfClansClient(Environment.GetEnvironmentVariable("COC_TOKEN"));
             var tag = "#U8C2UP8L";
             var tag2 = "#22QC2YYV2";
-
-            await coc.Clans.GetClanByTagAsync("asldkjfaslkdjfs");
         }
     }
 }

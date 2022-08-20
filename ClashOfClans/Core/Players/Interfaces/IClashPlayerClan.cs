@@ -1,7 +1,4 @@
 ﻿using ClashOfClans.Core.Clans;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ClashOfClans.Core.Players.Interfaces
 {

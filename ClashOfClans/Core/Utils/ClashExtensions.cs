@@ -1,8 +1,10 @@
 ﻿using ClashOfClans.Core.Clans;
 using System;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ClashOfClans.Core.Utils
 {
@@ -92,6 +94,19 @@ namespace ClashOfClans.Core.Utils
                 requestUri.Append($"&before={basicSearchSettings.Before}");
 
             return requestUri.ToString();
+        }
+
+        public static async Task<Stream> ToStreamAsync(this string str)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+
+            await writer.WriteAsync(str).ConfigureAwait(false);
+            await writer.FlushAsync().ConfigureAwait(false);
+
+            stream.Position = 0;
+
+            return stream;
         }
     }
 }
