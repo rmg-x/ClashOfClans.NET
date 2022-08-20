@@ -9,7 +9,8 @@ namespace ClashOfClans.Core.Utils
         {
             Converters =
             {
-                new JsonStringEnumConverter()
+                new JsonStringEnumConverter(),
+                new DateTimeConverterUsingDateTimeParse()
             }
         };
 
