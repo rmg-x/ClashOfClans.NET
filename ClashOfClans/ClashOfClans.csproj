@@ -11,11 +11,12 @@
     <RepositoryUrl>https://github.com/xRMG412/ClashOfClans.NET</RepositoryUrl>
     <PackageTags>ClashOfClans ClashOfClans.NET Clash.NET</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageReleaseNotes>Added recommended ratelimits, all API models now implement "IEquatable".</PackageReleaseNotes>
+    <PackageReleaseNotes>Add missing war state "warEnded"
+Refactored clash leagues</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/xRMG412/ClashOfClans.NET/blob/master/LICENSE</PackageLicenseUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Version>1.0.1</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

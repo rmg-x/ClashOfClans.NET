@@ -1,4 +1,6 @@
-﻿namespace ClashOfClans.Core.Clans.Interfaces
+﻿using System;
+
+namespace ClashOfClans.Core.Clans.Interfaces
 {
     public interface ICurrentWar
     {
@@ -6,11 +8,11 @@
 
         int TeamSize { get; }
 
-        string PreparationStartTime { get; }
+        DateTime PreparationStartTime { get; }
 
-        string StartTime { get; }
+        DateTime StartTime { get; }
 
-        string EndTime { get; }
+        DateTime EndTime { get; }
 
         CurrentWarClan Clan { get; }
 

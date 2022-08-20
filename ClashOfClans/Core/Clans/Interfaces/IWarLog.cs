@@ -1,10 +1,12 @@
+using System;
+
 namespace ClashOfClans.Core.Clans.Interfaces
 {
     public interface IWarLog
     {
         WarResult Result { get; }
 
-        string EndTime { get; }
+        DateTime EndTime { get; }
 
         int TeamSize { get; }
 
