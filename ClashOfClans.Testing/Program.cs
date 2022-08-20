@@ -13,12 +13,10 @@ namespace ClashOfClans.Testing
             var coc = new ClashOfClansClient(Environment.GetEnvironmentVariable("COC_TOKEN"));
 
             var tag = "#U8C2UP8L";
-            var result = await coc.Clans.SearchAsync("crimson tide", new ClanSearchSettings() { Limit = 35 });
+            var tag2 = "#22QC2YYV2";
+            var result = await coc.Clans.GetCurrentWarAsync(tag2);
 
-            foreach (var a in result.Where(x => x.Location != null))
-            {
-                Console.WriteLine($"{a.Tag} | {a.Name} | {a.Location.Name} | {a.Location.CountryCode ?? "None" }");
-            }
+            Console.WriteLine(result == null);
         }
     }
 }
