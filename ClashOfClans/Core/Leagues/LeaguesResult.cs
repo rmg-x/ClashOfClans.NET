@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Leagues
 {
     public class LeaguesResult
     {
-        [DataMember(Name = "items")]
+        [JsonPropertyName("items")]
         public IEnumerable<League> Leagues { get; private set; }
     }
 }

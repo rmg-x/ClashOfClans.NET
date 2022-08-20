@@ -2,18 +2,19 @@
 using ClashOfClans.Core.Leagues.Interfaces;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Leagues
 {
     public class LeagueSeasonClan : ILeagueSeasonClan, IEquatable<LeagueSeasonClan>
     {
-        [DataMember(Name = "tag")]
+        [JsonPropertyName("tag")]
         public string Tag { get; private set; }
 
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "badgeUrls")]
+        [JsonPropertyName("badgeUrls")]
         public ClanBadges Badges { get; private set; }
 
         public bool Equals(LeagueSeasonClan other)

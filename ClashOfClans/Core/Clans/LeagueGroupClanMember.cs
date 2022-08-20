@@ -1,18 +1,19 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class LeagueGroupClanMember : ILeageGroupClanMember, IEquatable<LeagueGroupClanMember>
     {
-        [DataMember(Name = "tag")]
+        [JsonPropertyName("tag")]
         public string Tag { get; private set; }
 
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "townHallLevel")]
+        [JsonPropertyName("townHallLevel")]
         public int TownhallLevel { get; private set; }
 
         public bool Equals(LeagueGroupClanMember other)

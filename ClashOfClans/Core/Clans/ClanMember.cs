@@ -2,42 +2,43 @@
 using ClashOfClans.Core.Leagues;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class ClanMember : IClanMember, IEquatable<ClanMember>
     {
-        [DataMember(Name = "tag")]
+        [JsonPropertyName("tag")]
         public string Tag { get; private set; }
 
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "role")]
+        [JsonPropertyName("role")]
         public ClanMemberRole Role { get; private set; }
 
-        [DataMember(Name = "expLevel")]
+        [JsonPropertyName("expLevel")]
         public int ExpLevel { get; private set; }
 
-        [DataMember(Name = "league")]
+        [JsonPropertyName("league")]
         public League League { get; private set; }
 
-        [DataMember(Name = "trophies")]
+        [JsonPropertyName("trophies")]
         public int Trophies { get; private set; }
 
-        [DataMember(Name = "versusTrophies")]
+        [JsonPropertyName("versusTrophies")]
         public int VersusTrophies { get; private set; }
 
-        [DataMember(Name = "clanRank")]
+        [JsonPropertyName("clanRank")]
         public int ClanRank { get; private set; }
 
-        [DataMember(Name = "previousClanRank")]
+        [JsonPropertyName("previousClanRank")]
         public int PreviousClanRank { get; private set; }
 
-        [DataMember(Name = "donations")]
+        [JsonPropertyName("donations")]
         public int Donations { get; private set; }
 
-        [DataMember(Name = "donationsRecieved")]
+        [JsonPropertyName("donationsRecieved")]
         public int DonationsRecieved { get; private set; }
 
         public bool Equals(ClanMember other)

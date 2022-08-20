@@ -1,30 +1,31 @@
 ﻿using ClashOfClans.Core.Players.Interfaces;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Players
 {
     public class ClashPlayerAchievement : IClashPlayerAchievement, IEquatable<ClashPlayerAchievement>
     {
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "stars")]
+        [JsonPropertyName("stars")]
         public int Stars { get; private set; }
 
-        [DataMember(Name = "value")]
+        [JsonPropertyName("value")]
         public int Value { get; private set; }
 
-        [DataMember(Name = "target")]
+        [JsonPropertyName("target")]
         public int Target { get; private set; }
 
-        [DataMember(Name = "info")]
+        [JsonPropertyName("info")]
         public string Description { get; private set; }
 
-        [DataMember(Name = "completionInfo")]
+        [JsonPropertyName("completionInfo")]
         public string CompletionInformation { get; private set; }
 
-        [DataMember(Name = "village")]
+        [JsonPropertyName("village")]
         public string Village { get; private set; }
 
         public bool Equals(ClashPlayerAchievement other)

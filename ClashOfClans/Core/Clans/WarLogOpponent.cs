@@ -1,27 +1,28 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
 using System;
 using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
     public class WarLogOpponent : IWarLogOpponent, IEquatable<WarLogOpponent>
     {
-        [DataMember(Name = "tag")]
+        [JsonPropertyName("tag")]
         public string Tag { get; private set; }
 
-        [DataMember(Name = "name")]
+        [JsonPropertyName("name")]
         public string Name { get; private set; }
 
-        [DataMember(Name = "badgeUrls")]
+        [JsonPropertyName("badgeUrls")]
         public ClanBadges Badges { get; private set; }
 
-        [DataMember(Name = "clanLevel")]
+        [JsonPropertyName("clanLevel")]
         public int ClanLevel { get; private set; }
 
-        [DataMember(Name = "stars")]
+        [JsonPropertyName("stars")]
         public int Stars { get; private set; }
 
-        [DataMember(Name = "destructionPercentage")]
+        [JsonPropertyName("destructionPercentage")]
         public double DestructionPercentage { get; private set; }
 
         public bool Equals(WarLogOpponent other)
