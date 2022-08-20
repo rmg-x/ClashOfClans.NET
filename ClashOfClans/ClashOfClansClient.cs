@@ -21,7 +21,7 @@ namespace ClashOfClans
         /// </summary>
         /// <param name="token">Clash of Clans API token</param>
         /// <param name="timeout">Timeout for all requests (default is 100 seconds)</param>
-        /// <param name="UseRecommendedRateLimits">Boolean to toggle Preemptive rate limits</param>
+        /// <param name="UseRecommendedRateLimits">Boolean to toggle recommended rate limits</param>
         public ClashOfClansClient(string token, TimeSpan timeout = default, bool UseRecommendedRateLimits = true)
         {
             HttpClientService = HttpClientService.GetInstance(token, timeout, UseRecommendedRateLimits);
