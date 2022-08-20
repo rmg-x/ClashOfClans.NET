@@ -22,7 +22,12 @@ namespace ClashOfClans.Core.Clans
         /// <exception cref="ArgumentException"><paramref name="clanName"/></exception>
         public async Task<IEnumerable<Clan>> SearchAsync(string clanName, ClanSearchSettings clanSearchSettings = default)
         {
-            var result = await _httpClientService.SearchClansAsync<ClanSearchResult>(HttpUtility.UrlEncode(clanName), clanSearchSettings);
+            if (string.IsNullOrEmpty(clanName) || clanName.Length < 3)
+            {
+                throw new ArgumentException("A clan name must be specified and greater than two characters.", nameof(clanName));
+            }
+
+            var result = await _httpClientService.RequestAsync<ClanSearchResult>($"clans?name={HttpUtility.UrlEncode(clanName)}", clanSearchSettings);
 
             return result.Clans;
         }
@@ -47,7 +52,7 @@ namespace ClashOfClans.Core.Clans
         /// <returns><see cref="IEnumerable{ClanMember}"/></returns>
         public async Task<IEnumerable<ClanMember>> GetClanMembersAsync(string clanTag, BasicSearchSettings searchSettings = default)
         {
-            var result = await _httpClientService.GetClanMembersAsync<ClanMembersResult>(HttpUtility.UrlEncode(clanTag), searchSettings);
+            var result = await _httpClientService.RequestAsync<ClanMembersResult>($"clans/{HttpUtility.UrlEncode(clanTag)}/members", searchSettings);
 
             return result.Members;
         }
