@@ -36,7 +36,6 @@ namespace ClashOfClans.Core.Players
             string requestUri = $"players/{HttpUtility.UrlEncode(playerTag)}/verifytoken";
 
             var result = await _httpClient.PostAsJsonAsync(requestUri, requestBody, ClashConstants.DefaultJsonSerializerOptions);
-
             result.EnsureSuccessStatusCode();
 
             var responseBody = await result.Content.ReadAsStreamAsync();
