@@ -2,8 +2,6 @@
 using ClashOfClans.Core.Utils;
 using System;
 using System.Runtime.Serialization;
-using Utf8Json;
-using Utf8Json.Formatters;
 
 namespace ClashOfClans.Core.Clans
 {
@@ -13,7 +11,6 @@ namespace ClashOfClans.Core.Clans
         public WarResult Result { get; private set; }
 
         [DataMember(Name = "endTime")]
-        [JsonFormatter(typeof(DateTimeFormatter), ClashConstants.CLASH_DATE_FORMAT)]
         public DateTime EndTime { get; private set; }
 
         [DataMember(Name = "teamSize")]
