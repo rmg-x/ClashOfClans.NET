@@ -1,3 +1,5 @@
+using ClashOfClans.Core.Locations;
+
 namespace ClashOfClans.Core.Clans.Interfaces
 {
     public interface IClan
@@ -8,7 +10,7 @@ namespace ClashOfClans.Core.Clans.Interfaces
 
         ClanType Type { get; }
 
-        ClanLocation Location { get; }
+        Location Location { get; }
 
         ClanBadges Badges { get; }
 

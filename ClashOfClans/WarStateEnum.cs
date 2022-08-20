@@ -10,6 +10,8 @@ namespace ClashOfClans
         [EnumMember(Value = "inWar")]
         InWar,
         [EnumMember(Value = "notInWar")]
-        NotInWar
+        NotInWar,
+        [EnumMember(Value = "preparation")]
+        Preparation
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
+using ClashOfClans.Core.Locations;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
@@ -19,7 +20,7 @@ namespace ClashOfClans.Core.Clans
         public string Description { get; private set; }
 
         [DataMember(Name = "location")]
-        public ClanLocation Location { get; private set; }
+        public Location Location { get; private set; }
 
         [DataMember(Name = "badgeUrls")]
         public ClanBadges Badges { get; private set; }

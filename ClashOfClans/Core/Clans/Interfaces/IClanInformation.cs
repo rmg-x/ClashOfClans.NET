@@ -1,3 +1,4 @@
+using ClashOfClans.Core.Locations;
 using System.Collections.Generic;
 
 namespace ClashOfClans.Core.Clans.Interfaces
@@ -12,7 +13,7 @@ namespace ClashOfClans.Core.Clans.Interfaces
 
         string Description { get; }
 
-        ClanLocation Location { get; }
+        Location Location { get; }
 
         ClanBadges Badges { get; }
 

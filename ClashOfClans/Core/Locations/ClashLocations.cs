@@ -1,0 +1,34 @@
+﻿using ClashOfClans.Core.Locations.Interfaces;
+using ClashOfClans.Core.Utils;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClashOfClans.Core.Locations
+{
+    public class ClashLocations : IClashLocations
+    {
+        private HttpClientService _httpClientService { get; set; }
+
+        public ClashLocations(HttpClientService httpClientService) => _httpClientService = httpClientService;
+
+        /// <summary>
+        /// Gets all available locations.
+        /// </summary>
+        /// <returns><see cref="IEnumerable{Location}"/></returns>
+        public async Task<IEnumerable<Location>> GetLocationsAsync()
+        {
+            var result = await _httpClientService.RequestAsync<LocationsResult>("locations");
+
+            return result.Locations;
+        }
+
+        public async Task<Location> GetLocationByIdAsync(int id)
+        {
+            var result = await _httpClientService.RequestAsync<Location>($"locations/{id}");
+
+            return result;
+        }
+    }
+}
