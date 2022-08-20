@@ -1,16 +1,9 @@
 ﻿using System;
-using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ClashOfClans.Core.Utils
 {
     public static class ClashExtensions
     {
-        public static bool IsNotCriticalFailure(this HttpResponseMessage httpMsg) => httpMsg.StatusCode == HttpStatusCode.NotFound;
-
         public static string GetWarFrequency(this WarFrequency? warFrequency)
         {
             string warFreq;
@@ -36,23 +29,10 @@ namespace ClashOfClans.Core.Utils
                     warFreq = "unknown";
                     break;
                 default:
-                    throw new Exception($"Invalid war frequency \"{warFrequency.ToString()}\"");
+                    throw new Exception($"Invalid war frequency \"{warFrequency}\"");
             }
 
             return warFreq;
-        }
-
-        public static async Task<Stream> ToStreamAsync(this string str)
-        {
-            var stream = new MemoryStream();
-            var writer = new StreamWriter(stream);
-
-            await writer.WriteAsync(str).ConfigureAwait(false);
-            await writer.FlushAsync().ConfigureAwait(false);
-
-            stream.Position = 0;
-
-            return stream;
         }
     }
 }

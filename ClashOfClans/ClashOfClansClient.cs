@@ -9,27 +9,41 @@ using ClashOfClans.Core.Players;
 using ClashOfClans.Core.Players.Interfaces;
 using ClashOfClans.Core.Utils;
 using System;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace ClashOfClans
 {
-    public class ClashOfClansClient : IClashOfClansClient, IDisposable
+    public class ClashOfClansClient : IClashOfClansClient
     {
-        private HttpClientService HttpClientService { get; set; }
+        /// <summary>
+        /// Constructor for ClashOfClansClient, creates a new <see cref="HttpClient" /> each time.
+        /// </summary>
+        /// <param name="apiToken">API token</param>
+        public ClashOfClansClient(string apiToken)
+            : this(apiToken, new HttpClient())
+        { }
 
         /// <summary>
-        /// Constructor for ClashOfClansClient
+        /// Constructor for ClashOfClansClient, uses an <see cref="IHttpClientFactory" /> to create the HTTP client.
         /// </summary>
-        /// <param name="token">Clash of Clans API token</param>
-        /// <param name="timeout">Timeout for all requests (default is 100 seconds)</param>
-        /// <param name="UseRecommendedRateLimits">Boolean to toggle recommended rate limits</param>
-        public ClashOfClansClient(string token, TimeSpan timeout = default, bool UseRecommendedRateLimits = true)
-        {
-            HttpClientService = HttpClientService.CreateService(token, timeout, UseRecommendedRateLimits);
+        /// <param name="apiToken"></param>
+        /// <param name="httpClientFactory"></param>
+        public ClashOfClansClient(string apiToken, IHttpClientFactory httpClientFactory) 
+            : this(apiToken, httpClientFactory.CreateClient())
+        { }
 
-            Clans = new ClashClans(HttpClientService);
-            Locations = new ClashLocations(HttpClientService);
-            Leagues = new ClashLeagues(HttpClientService);
-            Players = new ClashPlayers(HttpClientService);
+        internal ClashOfClansClient(string apiToken, HttpClient httpClient)
+        {
+            httpClient.BaseAddress = new Uri(ClashConstants.ApiBaseAddress);
+
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(ClashConstants.ApiAuthScheme, apiToken);
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(ClashConstants.MediaType));
+
+            Clans = new ClashClans(httpClient);
+            Locations = new ClashLocations(httpClient);
+            Leagues = new ClashLeagues(httpClient);
+            Players = new ClashPlayers(httpClient);
         }
 
         /// <summary>
@@ -51,7 +65,5 @@ namespace ClashOfClans
         /// Pertains to the "Players" section of the API
         /// </summary>
         public IClashPlayers Players { get; private set; }
-
-        public void Dispose() => HttpClientService.Dispose();
     }
 }
