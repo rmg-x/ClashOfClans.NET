@@ -15,6 +15,8 @@ namespace ClashOfClans.Testing
             var coc = new ClashOfClansClient(Environment.GetEnvironmentVariable("COC_TOKEN"));
             var tag = "#U8C2UP8L";
             var tag2 = "#22QC2YYV2";
+
+            await coc.Clans.GetClanByTagAsync("asldkjfaslkdjfs");
         }
     }
 }
