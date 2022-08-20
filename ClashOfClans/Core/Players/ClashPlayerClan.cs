@@ -9,16 +9,16 @@ namespace ClashOfClans.Core.Players
     public class ClashPlayerClan : IClashPlayerClan, IEquatable<ClashPlayerClan>
     {
         [JsonPropertyName("tag")]
-        public string Tag { get; private set; }
+        public string Tag { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("clanLevel")]
-        public int ClanLevel { get; private set; }
+        public int ClanLevel { get; set; }
 
         [JsonPropertyName("badgeUrls")]
-        public ClanBadges Badges { get; private set; }
+        public ClanBadges Badges { get; set; }
 
         public bool Equals(ClashPlayerClan other)
         {

@@ -7,6 +7,6 @@ namespace ClashOfClans.Core.Clans
     public class ClanMembersResult
     {
         [JsonPropertyName("items")]
-        public IEnumerable<ClanMember> Members { get; private set; }
+        public IEnumerable<ClanMember> Members { get; set; }
     }
 }

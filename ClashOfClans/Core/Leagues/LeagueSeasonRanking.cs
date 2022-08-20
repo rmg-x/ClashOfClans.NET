@@ -8,28 +8,28 @@ namespace ClashOfClans.Core.Leagues
     public class LeagueSeasonRanking : ILeagueSeasonRanking, IEquatable<LeagueSeasonRanking>
     {
         [JsonPropertyName("tag")]
-        public string Tag { get; private set; }
+        public string Tag { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("expLevel")]
-        public int ExpLevel { get; private set; }
+        public int ExpLevel { get; set; }
 
         [JsonPropertyName("trophies")]
-        public int Trophies { get; private set; }
+        public int Trophies { get; set; }
 
         [JsonPropertyName("attackWins")]
-        public int AttackWins { get; private set; }
+        public int AttackWins { get; set; }
 
         [JsonPropertyName("defenseWins")]
-        public int DefenseWins { get; private set; }
+        public int DefenseWins { get; set; }
 
         [JsonPropertyName("rank")]
-        public int Rank { get; private set; }
+        public int Rank { get; set; }
 
         [JsonPropertyName("clan")]
-        public LeagueSeasonClan Clan { get; private set; }
+        public LeagueSeasonClan Clan { get; set; }
 
         public bool Equals(LeagueSeasonRanking other)
         {

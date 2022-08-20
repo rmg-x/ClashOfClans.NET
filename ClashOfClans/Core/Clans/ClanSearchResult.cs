@@ -8,6 +8,6 @@ namespace ClashOfClans.Core.Clans
     public class ClanSearchResult : IClanSearchResult
     {
         [JsonPropertyName("items")]
-        public IEnumerable<Clan> Clans { get; private set; }
+        public IEnumerable<Clan> Clans { get; set; }
     }
 }

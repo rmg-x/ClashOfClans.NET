@@ -9,25 +9,25 @@ namespace ClashOfClans.Core.Clans
     public class CurrentWarClanMember : ICurrentWarClanMember, IEquatable<CurrentWarClanMember>
     {
         [JsonPropertyName("tag")]
-        public string Tag { get; private set; }
+        public string Tag { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("townhallLevel")]
-        public int TownhallLevel { get; private set; }
+        public int TownhallLevel { get; set; }
 
         [JsonPropertyName("mapPosition")]
-        public int MapPosition { get; private set; }
+        public int MapPosition { get; set; }
 
         [JsonPropertyName("attacks")]
-        public IEnumerable<ClanMemberAttack> Attacks { get; private set; }
+        public IEnumerable<ClanMemberAttack> Attacks { get; set; }
 
         [JsonPropertyName("opponentAttacks")]
-        public int OpponentAttackCount { get; private set; }
+        public int OpponentAttackCount { get; set; }
 
         [JsonPropertyName("bestOpponentAttack")]
-        public ClanMemberAttack BestOpponentAttack { get; private set; }
+        public ClanMemberAttack BestOpponentAttack { get; set; }
 
         public bool Equals(CurrentWarClanMember other)
         {

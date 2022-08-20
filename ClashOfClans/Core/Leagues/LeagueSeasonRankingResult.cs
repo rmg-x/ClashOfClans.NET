@@ -7,6 +7,6 @@ namespace ClashOfClans.Core.Leagues
     public class LeagueSeasonRankingResult
     {
         [JsonPropertyName("items")]
-        public IEnumerable<LeagueSeasonRanking> LeagueSeasonRankings { get; private set; }
+        public IEnumerable<LeagueSeasonRanking> LeagueSeasonRankings { get; set; }
     }
 }

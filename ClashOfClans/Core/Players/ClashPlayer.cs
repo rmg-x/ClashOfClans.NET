@@ -10,73 +10,73 @@ namespace ClashOfClans.Core.Players
     public class ClashPlayer : IClashPlayer, IEquatable<ClashPlayer>
     {
         [JsonPropertyName("tag")]
-        public string Tag { get; private set; }
+        public string Tag { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
         [JsonPropertyName("townHallLevel")]
-        public int TownhallLevel { get; private set; }
+        public int TownhallLevel { get; set; }
 
         [JsonPropertyName("expLevel")]
-        public int ExpLevel { get; private set; }
+        public int ExpLevel { get; set; }
 
         [JsonPropertyName("trophies")]
-        public int Trophies { get; private set; }
+        public int Trophies { get; set; }
 
         [JsonPropertyName("bestTrophies")]
-        public int BestTrophies { get; private set; }
+        public int BestTrophies { get; set; }
 
         [JsonPropertyName("warStars")]
-        public int WarStars { get; private set; }
+        public int WarStars { get; set; }
 
         [JsonPropertyName("attackWins")]
-        public int AttackWins { get; private set; }
+        public int AttackWins { get; set; }
 
         [JsonPropertyName("defenseWins")]
-        public int DefenseWins { get; private set; }
+        public int DefenseWins { get; set; }
 
         [JsonPropertyName("builderHallLevel")]
-        public int BuliderHallLevel { get; private set; }
+        public int BuliderHallLevel { get; set; }
 
         [JsonPropertyName("versusTrophies")]
-        public int VersusTrophies { get; private set; }
+        public int VersusTrophies { get; set; }
 
         [JsonPropertyName("bestVersusTrophies")]
-        public int BestVersusTrophies { get; private set; }
+        public int BestVersusTrophies { get; set; }
 
         [JsonPropertyName("versusBattleWins")]
-        public int VersusBattleWins { get; private set; }
+        public int VersusBattleWins { get; set; }
 
         [JsonPropertyName("role")]
-        public ClanMemberRole Role { get; private set; }
+        public ClanMemberRole Role { get; set; }
 
         [JsonPropertyName("donations")]
-        public int Donations { get; private set; }
+        public int Donations { get; set; }
 
         [JsonPropertyName("donationsReceived")]
-        public int DonationsReceived { get; private set; }
+        public int DonationsReceived { get; set; }
 
         [JsonPropertyName("clan")]
-        public ClashPlayerClan Clan { get; private set; }
+        public ClashPlayerClan Clan { get; set; }
 
         [JsonPropertyName("league")]
-        public League League { get; private set; }
+        public League League { get; set; }
 
         [JsonPropertyName("achievements")]
-        public IEnumerable<ClashPlayerAchievement> Achievements { get; private set; }
+        public IEnumerable<ClashPlayerAchievement> Achievements { get; set; }
 
         [JsonPropertyName("versusBattleWinCount")]
-        public int VersusBattleWinCount { get; private set; }
+        public int VersusBattleWinCount { get; set; }
 
         [JsonPropertyName("troops")]
-        public IEnumerable<ClashEntity> Troops { get; private set; }
+        public IEnumerable<ClashEntity> Troops { get; set; }
 
         [JsonPropertyName("heroes")]
-        public IEnumerable<ClashEntity> Heroes { get; private set; }
+        public IEnumerable<ClashEntity> Heroes { get; set; }
 
         [JsonPropertyName("spells")]
-        public IEnumerable<ClashEntity> Spells { get; private set; }
+        public IEnumerable<ClashEntity> Spells { get; set; }
 
         public bool Equals(ClashPlayer other)
         {
