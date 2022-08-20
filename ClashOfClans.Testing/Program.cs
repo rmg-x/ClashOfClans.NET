@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using System.Linq;
 using System.Collections;
-using ClashOfClans.Core.Clans;
 using System.Collections.Generic;
 
 namespace ClashOfClans.Testing

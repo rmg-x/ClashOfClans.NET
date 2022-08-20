@@ -27,7 +27,7 @@ namespace ClashOfClans
         /// <param name="UseRecommendedRateLimits">Boolean to toggle recommended rate limits</param>
         public ClashOfClansClient(string token, TimeSpan timeout = default, bool UseRecommendedRateLimits = true)
         {
-            HttpClientService = HttpClientService.GetInstance(token, timeout, UseRecommendedRateLimits);
+            HttpClientService = HttpClientService.CreateService(token, timeout, UseRecommendedRateLimits);
 
             Clans = new ClashClans(HttpClientService);
             Locations = new ClashLocations(HttpClientService);

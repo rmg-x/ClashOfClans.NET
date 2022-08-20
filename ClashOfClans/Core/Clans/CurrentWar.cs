@@ -1,9 +1,10 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
+using System;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
-    public class CurrentWar : ICurrentWar
+    public class CurrentWar : ICurrentWar, IEquatable<CurrentWar>
     {
         [DataMember(Name = "state")]
         public WarState WarState { get; private set; }
@@ -25,5 +26,13 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "opponent")]
         public CurrentWarClan Opponent { get; private set; }
+
+        public bool Equals(CurrentWar other)
+        {
+            if (other == null)
+                return false;
+
+            return Clan.Tag == other.Clan.Tag;
+        }
     }
 }

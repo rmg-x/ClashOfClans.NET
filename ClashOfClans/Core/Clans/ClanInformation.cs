@@ -1,11 +1,12 @@
 ﻿using ClashOfClans.Core.Clans.Interfaces;
 using ClashOfClans.Core.Locations;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Clans
 {
-    public class ClanInformation : IClanInformation
+    public class ClanInformation : IClanInformation, IEquatable<ClanInformation>
     {
         [DataMember(Name = "tag")]
         public string Tag { get; private set; }
@@ -60,5 +61,13 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "memberList")]
         public IEnumerable<ClanMember> Members { get; private set; }
+
+        public bool Equals(ClanInformation other)
+        {
+            if (other == null)
+                return false;
+
+            return Tag == other.Tag;
+        }
     }
 }

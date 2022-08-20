@@ -47,9 +47,6 @@ namespace ClashOfClans.Core.Utils
         {
             var requestUri = new StringBuilder();
 
-            if (clanSearchSettings.Name != null && clanSearchSettings.Name.Length >= 3)
-                requestUri.Append($"&name={clanSearchSettings.Name}");
-
             if (clanSearchSettings.WarFrequency != null)
                 requestUri.Append($"&warFrequency={clanSearchSettings.WarFrequency.GetWarFrequency()}");
 

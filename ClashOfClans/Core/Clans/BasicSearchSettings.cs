@@ -1,6 +1,6 @@
 ﻿using ClashOfClans.Core.Interfaces;
 
-namespace ClashOfClans.Core
+namespace ClashOfClans
 {
     public class BasicSearchSettings : IBasicSearchSettings
     {
