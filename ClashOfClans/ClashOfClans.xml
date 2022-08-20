@@ -27,6 +27,11 @@
             Pertains to the "Locations" section of the API
             </summary>
         </member>
+        <member name="P:ClashOfClans.ClashOfClansClient.GoldPass">
+            <summary>
+            Pertains to the "GoldPass" section of the API
+            </summary>
+        </member>
         <member name="P:ClashOfClans.ClashOfClansClient.Leagues">
             <summary>
             Pertains to the "Leagues" section of the API
@@ -111,6 +116,15 @@
             </summary>
             <param name="warTag">War tag to retrieve information from</param>
             <returns><see cref="T:ClashOfClans.Core.Clans.ClanWarLeague"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Goldpass.ClashGoldPass.GetCurrentGoldPassAsync">
+            <inheritdoc />
+        </member>
+        <member name="M:ClashOfClans.Core.GoldPass.Interfaces.IClashGoldPass.GetCurrentGoldPassAsync">
+            <summary>
+            Get information about the current gold pass season
+            </summary>
+            <returns><see cref="T:ClashOfClans.Core.GoldPass.GoldPassInformation" /></returns>
         </member>
         <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeaguesAsync">
             <inheritdoc />
