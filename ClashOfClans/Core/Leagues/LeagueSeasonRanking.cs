@@ -1,9 +1,10 @@
 ﻿using ClashOfClans.Core.Leagues.Interfaces;
+using System;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Leagues
 {
-    public class LeagueSeasonRanking : ILeagueSeasonRanking
+    public class LeagueSeasonRanking : ILeagueSeasonRanking, IEquatable<LeagueSeasonRanking>
     {
         [DataMember(Name = "tag")]
         public string Tag { get; private set; }
@@ -28,5 +29,13 @@ namespace ClashOfClans.Core.Leagues
 
         [DataMember(Name = "clan")]
         public LeagueSeasonClan Clan { get; private set; }
+
+        public bool Equals(LeagueSeasonRanking other)
+        {
+            if (other == null)
+                return false;
+
+            return Tag == other.Tag;
+        }
     }
 }

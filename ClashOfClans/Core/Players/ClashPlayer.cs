@@ -1,11 +1,12 @@
 ﻿using ClashOfClans.Core.Leagues;
 using ClashOfClans.Core.Players.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace ClashOfClans.Core.Players
 {
-    public class ClashPlayer : IClashPlayer
+    public class ClashPlayer : IClashPlayer, IEquatable<ClashPlayer>
     {
         [DataMember(Name = "tag")]
         public string Tag { get; private set; }
@@ -75,5 +76,13 @@ namespace ClashOfClans.Core.Players
 
         [DataMember(Name = "spells")]
         public IEnumerable<ClashEntity> Spells { get; private set; }
+
+        public bool Equals(ClashPlayer other)
+        {
+            if (other == null)
+                return false;
+
+            return Tag == other.Tag;
+        }
     }
 }
