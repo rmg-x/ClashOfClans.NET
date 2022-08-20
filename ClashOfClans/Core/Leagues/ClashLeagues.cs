@@ -24,7 +24,7 @@ namespace ClashOfClans.Core.Leagues
         /// <returns><see cref="IEnumerable{League}"/></returns>
         public async Task<IEnumerable<ILeague>> GetLeaguesAsync()
         {
-            var result = await _httpClient.GetFromJsonAsync<LeaguesResult>("leagues");
+            var result = await _httpClient.GetFromJsonAsync<LeaguesResult>("leagues", ClashConstants.DefaultJsonSerializerOptions);
 
             return result.Leagues;
         }
@@ -36,7 +36,7 @@ namespace ClashOfClans.Core.Leagues
         /// <returns><see cref="League"/></returns>
         public async Task<ILeague> GetLeagueByIdAsync(int leagueId)
         {
-            var result = await _httpClient.GetFromJsonAsync<League>($"leagues/{leagueId}");
+            var result = await _httpClient.GetFromJsonAsync<League>($"leagues/{leagueId}", ClashConstants.DefaultJsonSerializerOptions);
 
             return result;
         }
@@ -52,7 +52,7 @@ namespace ClashOfClans.Core.Leagues
             if (leagueId != LeagueConstants.LegendLeague)
                 throw new ArgumentException($"Seasons are only available for \"Legendary League\"", nameof(leagueId));
 
-            var result = await _httpClient.GetFromJsonAsync<LeagueSeasonsResult>($"leagues/{leagueId}/seasons");
+            var result = await _httpClient.GetFromJsonAsync<LeagueSeasonsResult>($"leagues/{leagueId}/seasons", ClashConstants.DefaultJsonSerializerOptions);
 
             return result.LeagueSeasons;
         }
@@ -65,7 +65,8 @@ namespace ClashOfClans.Core.Leagues
         /// <returns><see cref="IEnumerable{LeagueSeasonRanking}"/></returns>
         public async Task<IEnumerable<ILeagueSeasonRanking>> GetLeagueSeasonRankingsAsync(int leagueId, string seasonId)
         {
-            var result = await _httpClient.GetFromJsonAsync<LeagueSeasonRankingResult>($"leagues/{leagueId}/seasons/{HttpUtility.UrlEncode(seasonId)}");
+            var result = await _httpClient.GetFromJsonAsync<LeagueSeasonRankingResult>($"leagues/{leagueId}/seasons/{HttpUtility.UrlEncode(seasonId)}",
+                                                                                       ClashConstants.DefaultJsonSerializerOptions);
 
             return result.LeagueSeasonRankings;
         }
