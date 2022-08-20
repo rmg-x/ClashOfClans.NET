@@ -24,6 +24,11 @@ namespace ClashOfClans.Core.Locations
             return result.Locations;
         }
 
+        /// <summary>
+        /// Get a location by its ID
+        /// </summary>
+        /// <param name="id">Location id to get</param>
+        /// <returns><see cref="Location"/></returns>
         public async Task<Location> GetLocationByIdAsync(int id)
         {
             var result = await _httpClientService.RequestAsync<Location>($"locations/{id}");
