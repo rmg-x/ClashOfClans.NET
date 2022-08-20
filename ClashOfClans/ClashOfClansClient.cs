@@ -9,6 +9,9 @@ using ClashOfClans.Core.Players;
 using ClashOfClans.Core.Players.Interfaces;
 using ClashOfClans.Core.Utils;
 using System;
+using System.Net;
+using System.Net.Sockets;
+using System.Linq;
 
 namespace ClashOfClans
 {
@@ -24,7 +27,7 @@ namespace ClashOfClans
         /// <param name="UseRecommendedRateLimits">Boolean to toggle recommended rate limits</param>
         public ClashOfClansClient(string token, TimeSpan timeout = default, bool UseRecommendedRateLimits = true)
         {
-            HttpClientService = HttpClientService.GetInstance(token, timeout, UseRecommendedRateLimits);      
+            HttpClientService = HttpClientService.GetInstance(token, timeout, UseRecommendedRateLimits);
 
             Clans = new ClashClans(HttpClientService);
             Locations = new ClashLocations(HttpClientService);
