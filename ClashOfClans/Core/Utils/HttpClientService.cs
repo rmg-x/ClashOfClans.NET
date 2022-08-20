@@ -30,10 +30,13 @@ namespace ClashOfClans.Core.Utils
         {
             var response = await Instance.GetAsync(requestUri, ct);
 
-            if (response.IsNotCriticalFailure())
-                return default;
-            else
-                response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+            {
+                if (response.IsNotCriticalFailure())
+                    return default;
+                else
+                    response.EnsureSuccessStatusCode();
+            }
 
             var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
@@ -49,10 +52,13 @@ namespace ClashOfClans.Core.Utils
 
             var response = await Instance.GetAsync(requestUri, ct);
 
-            if (response.IsNotCriticalFailure())
-                return default;
-            else
-                response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+            {
+                if (response.IsNotCriticalFailure())
+                    return default;
+                else
+                    response.EnsureSuccessStatusCode();
+            }
 
             var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
@@ -65,10 +71,13 @@ namespace ClashOfClans.Core.Utils
 
             var response = await Instance.GetAsync(requestUri, ct);
 
-            if (response.IsNotCriticalFailure())
-                return default;
-            else
-                response.EnsureSuccessStatusCode();
+            if (!response.IsSuccessStatusCode)
+            {
+                if (response.IsNotCriticalFailure())
+                    return default;
+                else
+                    response.EnsureSuccessStatusCode();
+            }
 
             var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 

@@ -1,8 +1,4 @@
-using ClashOfClans.Core.Clans;
-using ClashOfClans.Core.Utils;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace ClashOfClans.Core.Clans.Interfaces

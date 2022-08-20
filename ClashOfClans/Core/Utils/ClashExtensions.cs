@@ -1,10 +1,8 @@
 ﻿using ClashOfClans.Core.Clans;
 using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ClashOfClans.Core.Utils
 {
@@ -26,6 +24,9 @@ namespace ClashOfClans.Core.Utils
                     break;
                 case WarFrequency.MoreThanOncePerWeek:
                     warFreq = "moreThanOncePerWeek";
+                    break;
+                case WarFrequency.OncePerWeek:
+                    warFreq = "oncePerWeek";
                     break;
                 case WarFrequency.Never:
                     warFreq = "never";
