@@ -17,11 +17,7 @@ namespace ClashOfClans.Core.Players
             _httpClient = httpClient;
         }
 
-        /// <summary>
-        /// Gets a player based off the given tag
-        /// </summary>
-        /// <param name="playerTag">Player tag</param>
-        /// <returns><see cref="ClashPlayer"/></returns>
+        /// <inheritdoc />
         public async Task<ClashPlayer> GetPlayerByTagAsync(string playerTag)
         {
             var result = await _httpClient.GetFromJsonAsync<ClashPlayer>($"players/{HttpUtility.UrlEncode(playerTag)}", ClashConstants.DefaultJsonSerializerOptions);
@@ -29,12 +25,7 @@ namespace ClashOfClans.Core.Players
             return result;
         }
 
-        /// <summary>
-        /// Verify player API token that can be found from the game settings
-        /// </summary>
-        /// <param name="playerTag">Player tag</param>
-        /// <param name="apiToken">API token</param>
-        /// <returns><see langword="true" /> if token is valid, else <see langword="false" /></returns>
+        /// <inheritdoc />
         public async Task<bool> VerifyApiToken(string playerTag, string apiToken)
         {
             var requestBody = new

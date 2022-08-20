@@ -16,10 +16,7 @@ namespace ClashOfClans.Core.Locations
             _httpClient = httpClient;
         }
 
-        /// <summary>
-        /// Gets all available locations.
-        /// </summary>
-        /// <returns><see cref="IEnumerable{Location}"/></returns>
+        /// <inheritdoc />
         public async Task<IEnumerable<Location>> GetLocationsAsync()
         {
             var result = await _httpClient.GetFromJsonAsync<LocationsResult>("locations", ClashConstants.DefaultJsonSerializerOptions);
@@ -27,11 +24,7 @@ namespace ClashOfClans.Core.Locations
             return result.Locations;
         }
 
-        /// <summary>
-        /// Get a location by its ID
-        /// </summary>
-        /// <param name="id">Location id to get</param>
-        /// <returns><see cref="Location"/></returns>
+        /// <inheritdoc />
         public async Task<Location> GetLocationByIdAsync(int id)
         {
             var result = await _httpClient.GetFromJsonAsync<Location>($"locations/{id}", ClashConstants.DefaultJsonSerializerOptions);
