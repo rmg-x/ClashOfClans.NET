@@ -9,11 +9,11 @@ namespace ClashOfClans.Tests
 {
     public class LeaguesTest
     {
-        ClashOfClansClient _cocClient;
+        private readonly ClashOfClansClient _cocClient;
 
         public LeaguesTest()
         {
-            string token = string.Empty;
+            var token = string.Empty;
 
             if (File.Exists("coc_token.txt"))
             {
