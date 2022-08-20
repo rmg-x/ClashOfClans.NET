@@ -1,9 +1,9 @@
-﻿using ClashOfClans.Core.Leagues;
+using ClashOfClans.Core.Leagues;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClashOfClans.Core.Interfaces
+namespace ClashOfClans.Core.Leagues.Interfaces
 {
     public interface ILeague
     {

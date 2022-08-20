@@ -1,4 +1,5 @@
 ﻿using ClashOfClans.Core.Clans;
+using ClashOfClans.Core.Clans.Interfaces;
 using ClashOfClans.Core.Interfaces;
 using ClashOfClans.Core.Utils;
 

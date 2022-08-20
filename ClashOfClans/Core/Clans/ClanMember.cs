@@ -1,4 +1,5 @@
-﻿using ClashOfClans.Core.Interfaces;
+﻿using ClashOfClans.Core.Clans.Interfaces;
+using ClashOfClans.Core.Interfaces;
 using ClashOfClans.Core.Leagues;
 using System;
 using System.Collections.Generic;
