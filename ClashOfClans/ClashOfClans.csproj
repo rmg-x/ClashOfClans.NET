@@ -29,4 +29,8 @@ Add Clan War League</PackageReleaseNotes>
     <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="6.0.1" />
+  </ItemGroup>
+
 </Project>
