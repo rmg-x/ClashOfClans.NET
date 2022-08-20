@@ -10,10 +10,9 @@ namespace ClashOfClans.Testing
         static void Main(string[] args)
         {
             var coc = new ClashOfClansClient(Environment.GetEnvironmentVariable("COC_TOKEN"));
+            var clan = coc.Clans.GetClanByTagAsync("#U8C2UP8L").GetAwaiter().GetResult();
 
-            var clanMembers = coc.Clans.GetClanMembersAsync("#U8C2UP8L").GetAwaiter().GetResult();
-
-            foreach (var member in clanMembers.Where(x => x.Trophies > 950))
+            foreach (var member in clan.Members.Where(x => x.Trophies > 950))
             {
                 Console.WriteLine($"{member.Name} | {member.League} | {member.Trophies}");
             }

@@ -1,7 +1,6 @@
 ﻿using ClashOfClans.Core.Clans;
 using ClashOfClans.Core.Interfaces;
 using ClashOfClans.Core.Utils;
-using System;
 
 namespace ClashOfClans
 {
@@ -9,9 +8,9 @@ namespace ClashOfClans
     {
         public ClashOfClansClient(string token)
         {
-            HttpClientService.Intialize(token);
+            var httpClientService = HttpClientService.GetInstance(token);
 
-            Clans = new ClashClans();
+            Clans = new ClashClans(httpClientService);
         }
 
         public IClashClans Clans { get; private set; }
