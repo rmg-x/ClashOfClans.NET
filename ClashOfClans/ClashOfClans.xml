@@ -27,6 +27,11 @@
             Pertains to the "Leagues" section of the API
             </summary>
         </member>
+        <member name="P:ClashOfClans.ClashOfClansClient.Players">
+            <summary>
+            Pertains to the "Players" section of the API
+            </summary>
+        </member>
         <member name="M:ClashOfClans.Core.Clans.ClashClans.SearchAsync(System.String,ClashOfClans.Core.Clans.ClanSearchSettings)">
             <summary>
             Search all clans by name and/or filtering the results using various criteria. At least one filtering criteria must be defined and if name is used as part of search, it is required to be at least three characters long.
@@ -65,6 +70,35 @@
             <param name="clanTag">Clan tag to get current war for</param>
             <returns><see cref="T:ClashOfClans.Core.Clans.CurrentWar"/></returns>
         </member>
+        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeaguesAsync">
+            <summary>
+            Gets a list of all leagues
+            </summary>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueByIdAsync(System.Int32)">
+            <summary>
+            Get league information from a league id
+            </summary>
+            <param name="leagueId">League id to get</param>
+            <returns><see cref="T:ClashOfClans.Core.Leagues.League"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueSeasonsAsync(System.Int32)">
+            <summary>
+            Gets all league seasons, only available for "Legendary League"
+            </summary>
+            <param name="leagueId">League id</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="M:ClashOfClans.Core.Leagues.ClashLeagues.GetLeagueSeasonRankingsAsync(System.Int32,System.String)">
+            <summary>
+            Get league season rankings, only available for "Legendary League"
+            </summary>
+            <param name="leagueId">League id</param>
+            <param name="seasonId">Season id</param>
+            <returns><see cref="T:System.Collections.Generic.IEnumerable`1"/></returns>
+        </member>
         <member name="M:ClashOfClans.Core.Locations.ClashLocations.GetLocationsAsync">
             <summary>
             Gets all available locations.
@@ -77,6 +111,13 @@
             </summary>
             <param name="id">Location id to get</param>
             <returns><see cref="T:ClashOfClans.Core.Locations.Location"/></returns>
+        </member>
+        <member name="M:ClashOfClans.Core.Players.ClashPlayers.GetPlayerByTagAsync(System.String)">
+            <summary>
+            Gets a player based off the given tag
+            </summary>
+            <param name="playerTag">Player tag</param>
+            <returns><see cref="T:ClashOfClans.Core.Players.ClashPlayer"/></returns>
         </member>
     </members>
 </doc>

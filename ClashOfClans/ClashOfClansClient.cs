@@ -5,6 +5,8 @@ using ClashOfClans.Core.Leagues;
 using ClashOfClans.Core.Leagues.Interfaces;
 using ClashOfClans.Core.Locations;
 using ClashOfClans.Core.Locations.Interfaces;
+using ClashOfClans.Core.Players;
+using ClashOfClans.Core.Players.Interfaces;
 using ClashOfClans.Core.Utils;
 using System;
 
@@ -27,6 +29,7 @@ namespace ClashOfClans
             Clans = new ClashClans(HttpClientService);
             Locations = new ClashLocations(HttpClientService);
             Leagues = new ClashLeagues(HttpClientService);
+            Players = new ClashPlayers(HttpClientService);
         }
 
         /// <summary>
@@ -43,6 +46,11 @@ namespace ClashOfClans
         /// Pertains to the "Leagues" section of the API
         /// </summary>
         public IClashLeagues Leagues { get; private set; }
+
+        /// <summary>
+        /// Pertains to the "Players" section of the API
+        /// </summary>
+        public IClashPlayers Players { get; private set; }
 
         public void Dispose() => HttpClientService.Dispose();
     }
