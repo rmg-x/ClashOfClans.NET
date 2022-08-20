@@ -11,12 +11,11 @@
     <RepositoryUrl>https://github.com/xRMG412/ClashOfClans.NET</RepositoryUrl>
     <PackageTags>ClashOfClans ClashOfClans.NET Clash.NET</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageReleaseNotes>Add missing war state "warEnded"
-Refactored clash leagues</PackageReleaseNotes>
+    <PackageReleaseNotes>Add custom format for datetime</PackageReleaseNotes>
     <PackageLicenseUrl>https://github.com/xRMG412/ClashOfClans.NET/blob/master/LICENSE</PackageLicenseUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
