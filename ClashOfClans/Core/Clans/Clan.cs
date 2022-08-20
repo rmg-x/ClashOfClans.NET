@@ -11,6 +11,9 @@ namespace ClashOfClans.Core.Clans
         [DataMember(Name = "name")]
         public string Name { get; private set; }
 
+        [DataMember(Name = "type")]
+        public ClanType Type { get; private set; }
+
         [DataMember(Name = "location")]
         public ClanLocation Location { get; private set; }
 
@@ -25,6 +28,21 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "clanVersusPoints")]
         public int ClanVersusPoints { get; private set; }
+
+        [DataMember(Name = "requiredTrophies")]
+        public int RequiredTrophies { get; private set; }
+
+        [DataMember(Name = "warFrequency")]
+        public WarFrequency WarFrequency { get; private set; }
+
+        [DataMember(Name = "warWinStreak")]
+        public int WarWinStreak { get; private set; }
+
+        [DataMember(Name = "warWins")]
+        public int WarWins { get; private set; }
+
+        [DataMember(Name = "isWarLogPublic")]
+        public bool IsWarLogPublic { get; private set; }
 
         [DataMember(Name = "members")]
         public int MemberCount { get; private set; }

@@ -13,5 +13,8 @@ namespace ClashOfClans.Core.Clans
 
         [DataMember(Name = "isCountry")]
         public bool IsCountry { get; private set; }
+
+        [DataMember(Name = "countryCode")]
+        public string CountryCode { get; private set; }
     }
 }

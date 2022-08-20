@@ -6,6 +6,8 @@ namespace ClashOfClans.Core.Clans.Interfaces
 
         string Name { get; }
 
+        ClanType Type { get; }
+
         ClanLocation Location { get; }
 
         ClanBadges Badges { get; }
@@ -15,6 +17,16 @@ namespace ClashOfClans.Core.Clans.Interfaces
         int ClanPoints { get; }
 
         int ClanVersusPoints { get; }
+
+        int RequiredTrophies { get; }
+
+        WarFrequency WarFrequency { get; }
+
+        int WarWinStreak { get; }
+
+        int WarWins { get; }
+
+        bool IsWarLogPublic { get; }
 
         int MemberCount { get; }
     }

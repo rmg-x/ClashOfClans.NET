@@ -7,5 +7,7 @@ namespace ClashOfClans.Core.Clans.Interfaces
         string Name { get; }
         
         bool IsCountry { get; }
+
+        string CountryCode { get; }
     }
 }
