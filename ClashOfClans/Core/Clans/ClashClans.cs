@@ -3,6 +3,8 @@ using ClashOfClans.Core.Utils;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web;
+using System.Linq;
+using System;
 
 namespace ClashOfClans.Core.Clans
 {
@@ -71,6 +73,18 @@ namespace ClashOfClans.Core.Clans
             var result = await _httpClientService.GetClanMembersAsync<ClanMembersResult>(HttpUtility.UrlEncode(clanTag), searchSettings);
 
             return result.Members;
+        }
+
+        /// <summary>
+        /// Retrieve a clan war log.
+        /// </summary>
+        /// <param name="clanTag">Clan tag to search for</param>
+        /// <returns><see cref="IEnumerable{WarLog}"/></returns>
+        public async Task<IEnumerable<WarLog>> GetWarLogsAsync(string clanTag)
+        {
+            var result = await _httpClientService.RequestAsync<WarLogResult>($"clans/{HttpUtility.UrlEncode(clanTag)}/warlog");
+
+            return result.WarLogs;
         }
     }
 }
