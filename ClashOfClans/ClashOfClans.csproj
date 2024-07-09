@@ -12,12 +12,12 @@
     <PackageTags>ClashOfClans ClashOfClans.NET Clash.NET</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <PackageReleaseNotes>Upgrade dependencies</PackageReleaseNotes>
-    <license>https://github.com/rmg-x/ClashOfClans.NET/blob/master/LICENSE</license>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Version>3.0.0</Version>
   </PropertyGroup>
-
+  
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>ClashOfClans.xml</DocumentationFile>
     <WarningsAsErrors>NU1605</WarningsAsErrors>
