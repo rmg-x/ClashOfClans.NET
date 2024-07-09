@@ -3,30 +3,29 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>7.1</LangVersion>
-    <Authors>xRMG412</Authors>
+    <Authors>rmg-x</Authors>
     <Company>None</Company>
     <Product>ClashOfClans.NET</Product>
     <PackageId>ClashOfClans.NET</PackageId>
     <Description>A simple wrapper for the official clash of clans API.</Description>
-    <RepositoryUrl>https://github.com/xRMG412/ClashOfClans.NET</RepositoryUrl>
+    <RepositoryUrl>https://github.com/rmg-x/ClashOfClans.NET</RepositoryUrl>
     <PackageTags>ClashOfClans ClashOfClans.NET Clash.NET</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageReleaseNotes>Add League Group
-Add Clan War League</PackageReleaseNotes>
-    <PackageLicenseUrl>https://github.com/xRMG412/ClashOfClans.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReleaseNotes>Upgrade dependencies</PackageReleaseNotes>
+    <license>https://github.com/rmg-x/ClashOfClans.NET/blob/master/LICENSE</license>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Version>2.0.0</Version>
+    <Version>3.0.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\Users\Ryan\source\repos\ClashOfClans.NET\ClashOfClans\ClashOfClans.xml</DocumentationFile>
+    <DocumentationFile>ClashOfClans.xml</DocumentationFile>
     <WarningsAsErrors>NU1605</WarningsAsErrors>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>ClashOfClans.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
